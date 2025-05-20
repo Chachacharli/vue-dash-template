@@ -1,6 +1,6 @@
 <template>
   <li
-    class="p-2 mb-2 rounded-md transition-all relative group cursor-pointer"
+    class="mb-2 rounded-md transition-all relative group cursor-pointer flex items-center"
     :class="[
       isActive
         ? 'text-royal-purple-800 font-semibold bg-royal-purple-100'
@@ -8,13 +8,11 @@
       !isOpen ? 'flex items-center justify-center' : '',
     ]"
   >
-    <router-link :to="props.item.path" class="flex space-x-2">
-      <span>
+    <router-link :to="props.item.path" class="flex items-center space-x-2 w-full p-2">
         <vue-feather
           :class="isActive ? 'text-royal-purple-800' : 'text-gray-500'"
           :type="props.item.meta?.icon ? props.item.meta.icon : 'circle'"
         ></vue-feather>
-      </span>
       <transition
         enter-active-class="transition-all duration-500 ease-in-out"
         enter-from-class="opacity-0 translate-x-10"

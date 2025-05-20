@@ -29,7 +29,7 @@ declare module 'vue' {
     DashLinkCard: typeof import('./src/components/cards/DashLinkCard.vue')['default']
     DashModal: typeof import('./src/components/modal/DashModal.vue')['default']
     DashOverlay: typeof import('./src/components/overlay/DashOverlay.vue')['default']
-    DashPanel: typeof import('./src/components/grids/DashPanel.vue')['default']
+    DashPanel: typeof import('./src/components/containers/DashPanel.vue')['default']
     DashPopover: typeof import('./src/components/popover/DashPopover.vue')['default']
     DashProgressBar: typeof import('./src/components/progressBar/DashProgressBar.vue')['default']
     DashRibbon: typeof import('./src/components/ribbon/DashRibbon.vue')['default']

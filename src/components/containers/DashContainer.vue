@@ -1,14 +1,17 @@
 <template>
-  <section class="bg-white w-[100%] min-h-[50px] rounded-xs shadow-2xs my-2 p-3">
-    <section v-if="$slots.header">
-      <div class="px-2 py-3">
-        <slot name="header"></slot>
-      </div>
-    </section>
-    <div class="p-2">
-      <slot name="main"></slot>
+  <section :name="name" class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
+    <div class="grid grid-cols-12 gap-4 md:gap-6">
+      <slot></slot>
     </div>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+type ContainerProps = {
+  name?: string;
+}
+
+const { name } = defineProps<ContainerProps>();
+
+</script>
