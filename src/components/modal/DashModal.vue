@@ -8,7 +8,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from 'radix-vue'
+} from 'reka-ui'
 
 import DashTypography from '@/components/typography/DashTypography.vue'
 

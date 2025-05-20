@@ -14,7 +14,7 @@ import { useRoute } from 'vue-router'
 import DashboardLayout from './views/Layouts/DashboardLayout.vue'
 import FlatLayout from './views/Layouts/FlatLayout.vue'
 import { useSidebarStore } from './stores/sidenav'
-import { ToastProvider, ToastViewport } from 'radix-vue'
+import { ToastProvider, ToastViewport } from 'reka-ui'
 import ToastContainer from './components/toast/ToastContainer.vue'
 
 const route = useRoute()

@@ -1,10 +1,10 @@
 <template>
   <li
-    class="p-2 mb-2 rounded-md transition-all hover:bg-slate-100 relative group cursor-pointer"
+    class="p-2 mb-2 rounded-md transition-all relative group cursor-pointer"
     :class="[
       isActive
-        ? 'text-royal-purple-800 font-semibold bg-linear-to-br from-royal-purple-300 to-royal-purple-100'
-        : '',
+        ? 'text-royal-purple-800 font-semibold bg-royal-purple-100'
+        : 'font-semibold text-slate-800 hover:bg-slate-100',
       !isOpen ? 'flex items-center justify-center' : '',
     ]"
   >

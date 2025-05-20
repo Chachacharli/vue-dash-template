@@ -16,7 +16,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from 'radix-vue'
+} from 'reka-ui'
 
 const toggleState = ref(false)
 const checkboxOne = ref(false)

@@ -18,10 +18,10 @@ import {
   DateRangePickerPrev,
   DateRangePickerRoot,
   DateRangePickerTrigger,
-} from 'radix-vue'
+} from 'reka-ui'
 
 import { ref, watch } from 'vue'
-import { type DateRange } from 'radix-vue'
+import { type DateRange } from 'reka-ui'
 import { rangeToDateRange, dateRangeToRange } from '@/@core/date/dateHelpers'
 import { type DashDateRangePickerProps } from '@/types'
 
