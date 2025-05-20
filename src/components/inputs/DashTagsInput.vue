@@ -6,7 +6,7 @@ import {
   TagsInputItemDelete,
   TagsInputItemText,
   TagsInputRoot,
-} from 'radix-vue'
+} from 'reka-ui'
 
 import { type DashTagsInputProps } from '@/types'
 

@@ -18,7 +18,7 @@ import {
   DatePickerPrev,
   DatePickerRoot,
   DatePickerTrigger,
-} from 'radix-vue'
+} from 'reka-ui'
 
 import { ref, watch } from 'vue'
 

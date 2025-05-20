@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { ProgressIndicator, ProgressRoot } from 'radix-vue'
+import { ProgressIndicator, ProgressRoot } from 'reka-ui'
 
 type ProgressProps = {
   value?: number

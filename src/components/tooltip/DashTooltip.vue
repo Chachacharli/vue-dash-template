@@ -27,7 +27,7 @@ import {
   TooltipProvider,
   TooltipRoot,
   TooltipTrigger,
-} from 'radix-vue'
+} from 'reka-ui'
 import { computed } from 'vue'
 
 type Side = 'top' | 'right' | 'bottom' | 'left'

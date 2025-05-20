@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { CheckboxIndicator, CheckboxRoot } from 'radix-vue'
+import { CheckboxIndicator, CheckboxRoot } from 'reka-ui'
 import { type DashCheckboxProps } from '@/types'
 
 const props = withDefaults(defineProps<DashCheckboxProps>(), {})

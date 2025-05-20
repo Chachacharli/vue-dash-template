@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { TabsRoot, TabsList, TabsIndicator, TabsTrigger } from 'radix-vue'
+import { TabsRoot, TabsList, TabsIndicator, TabsTrigger } from 'reka-ui'
 import DashTypography from '../typography/DashTypography.vue'
 
 type TabsTriggerProps = {

@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { PopoverClose, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'radix-vue'
+import { PopoverClose, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui'
 
 type PopoverProps = {
   side: 'top' | 'right' | 'bottom' | 'left'

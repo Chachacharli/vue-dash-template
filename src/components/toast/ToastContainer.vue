@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { ToastRoot, ToastTitle, ToastDescription } from 'radix-vue'
+import { ToastRoot, ToastTitle, ToastDescription } from 'reka-ui'
 import { useToast } from '@/@core/toast/useToast'
 import { type ToastVariant } from '@/@core/toast/useToast'
 
