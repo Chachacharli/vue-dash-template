@@ -13,6 +13,7 @@ Tambien se agregan pantallas para procesar el inicio de sesión y cierre de sesi
 ### Mejoras
 - CT [270] Implementación del servicio de autenticación OIDC.
 - CT [270] Agregado el componente de pantalla de inicio de sesión personalizado.
+- CT [270] Agregado un AuthProvider para manejar la autenticación en toda la aplicación.
 
 ### Obsoleto
 //
