@@ -17,6 +17,7 @@ declare module 'vue' {
     DashDatePicker: typeof import('./src/components/selects/DashDatePicker.vue')['default']
     DashDateRangePicker: typeof import('./src/components/selects/DashDateRangePicker.vue')['default']
     DashDotDrowpdown: typeof import('./src/components/dropdowns/DashDotDrowpdown.vue')['default']
+    DashDotLoader: typeof import('./src/components/loaders/DashDotLoader.vue')['default']
     DashDropwdown: typeof import('./src/components/dropdowns/DashDropwdown.vue')['default']
     DashFormGenerator: typeof import('./src/components/forms/DashFormGenerator.vue')['default']
     DashGrid: typeof import('./src/components/grids/DashGrid.vue')['default']

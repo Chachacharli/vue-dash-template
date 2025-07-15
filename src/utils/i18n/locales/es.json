@@ -24,6 +24,8 @@
     "signInButton": "Iniciar sesión",
     "createAccount": "Crear una cuenta",
     "welcomeMessage": "¡Bienvenido de nuevo!",
-    "canSingIn": "Puedes iniciar sesión con tu nombre de usuario o correo electrónico."
+    "canSingIn": "Puedes iniciar sesión con tu nombre de usuario o correo electrónico.",
+    "processLogin": "Procesando tu inicio de sesión...",
+    "processLogOut": "Procesando tu cierre de sesión..."
   }
 }
