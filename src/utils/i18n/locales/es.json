@@ -14,5 +14,16 @@
   "validationMessages": {
     "maximunLength": "El campo debe tener un máximo de {maximun} caracteres",
     "minimunLength": "El campo debe tener un mínimo de {minimun} caracteres"
+  },
+  "loginPage": {
+    "title": "Iniciar sesión",
+    "usernameOrEmail": "Nombre de usuario o correo electrónico",
+    "password": "Contraseña",
+    "rememberMe": "Recuérdame",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "signInButton": "Iniciar sesión",
+    "createAccount": "Crear una cuenta",
+    "welcomeMessage": "¡Bienvenido de nuevo!",
+    "canSingIn": "Puedes iniciar sesión con tu nombre de usuario o correo electrónico."
   }
 }
