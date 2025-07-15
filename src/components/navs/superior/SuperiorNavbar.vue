@@ -2,7 +2,7 @@
   <nav class="mb-2 p-2 bg-white rounded-xs shadow-2xs">
     <div class="flex justify-between items-center">
       <div>
-        <button @click="toggleSidebar" class="">
+        <button @click="toggleSidebar" class="cursor-pointer">
           <vue-feather v-if="isMobile" type="menu"></vue-feather>
         </button>
       </div>
@@ -21,7 +21,7 @@
           <button
             @click="toggleDropdown"
             type="button"
-            class="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-royal-purple-500"
+            class="inline-flex justify-center w-full cursor-pointer rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-royal-purple-500"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"

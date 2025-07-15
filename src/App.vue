@@ -1,12 +1,14 @@
 <template>
   <AuthPovider>
-    <ToastProvider swipe-direction="right">
-      <component :is="currentLayout">
-        <RouterView />
-      </component>
-      <ToastContainer />
-      <ToastViewport class="fixed top-0 right-0 p-4 flex flex-col gap-2" />
-    </ToastProvider>
+    <IdleProvider>
+      <ToastProvider swipe-direction="right">
+        <component :is="currentLayout">
+          <RouterView />
+        </component>
+        <ToastContainer />
+        <ToastViewport class="fixed top-0 right-0 p-4 flex flex-col gap-2" />
+      </ToastProvider>
+    </IdleProvider>
   </AuthPovider>
 </template>
 
@@ -19,6 +21,7 @@ import { useSidebarStore } from './stores/sidenav'
 import { ToastProvider, ToastViewport } from 'reka-ui'
 import ToastContainer from './components/toast/ToastContainer.vue'
 import AuthPovider from './@core/auth/AuthPovider.vue'
+import IdleProvider from './@core/auth/IdleProvider.vue'
 
 const route = useRoute()
 const sidebarStore = useSidebarStore()

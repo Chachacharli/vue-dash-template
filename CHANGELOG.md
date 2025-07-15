@@ -1,5 +1,20 @@
 # vue-dash-template
 
+## 0.3.0 - 15/07/2025
+
+### Resumen
+Se agrega un componente de IDLEProvider para manejar el estado de inactividad del usuario en la aplicación. Este componente permite detectar cuando el usuario está inactivo y ejecutar acciones específicas, como redirigir a una pantalla de bloqueo o cerrar sesión automáticamente después de un período de inactividad. Se implementa un silent-renew para la autenticación OIDC, lo que mejora la experiencia del usuario al mantener la sesión activa sin necesidad de volver a iniciar sesión manualmente.
+
+### Correcciones
+//
+
+### Mejoras
+- CT [271] Implementación del componente IDLEProvider para manejar el estado de inactividad del usuario.
+- CT [271] Agregado un silent-renew para la autenticación OIDC.
+
+### Obsoleto
+//
+
 ## 0.2.0 - 15/07/2025
 
 ### Resumen

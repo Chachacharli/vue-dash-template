@@ -1,4 +1,11 @@
 import { UserManager } from 'oidc-client-ts'
 import { OIDC_CONFIG } from '@/@core/oidc/oidcConfig'
 
-export const userManager = new UserManager(OIDC_CONFIG)
+const userManager = new UserManager(OIDC_CONFIG)
+
+userManager.events.addSilentRenewError((err) => {
+  console.error('Silent renew failed:', err)
+})
+
+export default userManager 
+
