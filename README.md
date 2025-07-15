@@ -1,61 +1,109 @@
-# vue-dash-template
+# VUE-DASH-TEMPLATE
 
-This template should help get you started developing with Vue 3 in Vite.
+## Tabla de contenidos
 
-## Recommended IDE Setup
+- [VUE-DASH-TEMPLATE](#vue-dash-template)
+  - [🚀 Descripción](#🚀-descripción)
+  - [🛠️ Stack Tecnológico](#🛠️-stack-tecnológico)
+  - [📂 Estructura del Proyecto](#📂-estructura-del-proyecto)
+  - [🧪 Comandos para Desarrollo](#🧪-comandos-para-desarrollo)
+  - [🔐 Autenticación OIDC](#🔐-autenticación-oidc)
+    - [📁 Archivos clave:](#📁-archivos-clave:)
+    - [✅ Flujo Implementado:](#✅-flujo-implementado:)
+  - [🧭 Rutas protegidas](#🧭-rutas-protegidas)
+  - [🧩 Cómo extender esta plantilla](#🧩-cómo-extender-esta-plantilla)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Type Support for `.vue` Imports in TS
+## 🚀 Descripción
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Plantilla base moderna para construir dashboards y aplicaciones administrativas usando **Vue 3**, **TypeScript** y **Vite**. Incluye autenticación con **OIDC (OAuth 2.0 + PKCE)**, gestión de estado con **Pinia**, diseño con **Tailwind CSS**, y pruebas automatizadas con **Cypress**.
 
-## Customize configuration
+Ideal para proyectos empresariales, paneles de control, SPAs seguras y escalables desde el inicio.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 🛠️ Stack Tecnológico
 
-```sh
-npm install
+| Tecnología       | Descripción                                               |
+|------------------|-----------------------------------------------------------|
+| **Vue 3**        | Framework progresivo para construir interfaces de usuario.|
+| **TypeScript**   | Superset de JavaScript con tipado estático.               |
+| **Vite**         | Bundler ultrarrápido con soporte para HMR.                |
+| **Pinia**        | Gestión de estado para Vue moderna, basada en Composition API. |
+| **Vue Router**   | Enrutamiento dinámico y navegación SPA.                   |
+| **Tailwind CSS** | Framework utilitario para estilos rápidos y personalizados. |
+| **oidc-client-ts** | Cliente OIDC moderno con soporte para PKCE.             |
+| **Cypress**      | Pruebas end-to-end potentes y fáciles de escribir.        |
+
+---
+
+## 📂 Estructura del Proyecto
+
+```plaintext
+    src/
+    ├── assets/ # Recursos estáticos
+    ├── components/ # Componentes reutilizables
+    ├── layouts/ # Layouts principales
+    ├── pages/ # Vistas y páginas del router
+    ├── router/ # Configuración del enrutador
+    ├── services/ # Servicios como JwtService, OidcService
+    ├── stores/ # Pinia stores (gestión de estado)
+    ├── styles/ # Archivos de estilo global
+    ├── utils/ # Utilidades y helpers
 ```
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
+## 🧪 Comandos para Desarrollo
+
+| Comando                 | Descripción                                    |
+|------------------------|------------------------------------------------|
+| `npm run dev`          | Inicia el servidor de desarrollo               |
+| `npm run build`        | Compila el proyecto para producción            |
+| `npm run preview`      | Previsualiza la app en modo producción         |
+| `npx cypress open`     | Abre la interfaz de Cypress                    |
+| `npx cypress run`      | Ejecuta las pruebas E2E en modo headless       |
+
+---
+
+## 🔐 Autenticación OIDC
+
+La autenticación está basada en el estándar **OpenID Connect** con el flujo de autorización **PKCE** (Proof Key for Code Exchange), usando la librería `oidc-client-ts`.
+
+### 📁 Archivos clave:
+- `src/services/OidcService.ts`: Encapsula toda la lógica de inicio/cierre de sesión, manejo de tokens, renovación silenciosa, etc.
+- `src/router/index.ts`: Incluye rutas de callback como `/auth/callback` y middleware para proteger rutas.
+
+### ✅ Flujo Implementado:
+- Login por redirección (`signinRedirect`)
+- Callback automático (`signinRedirectCallback`)
+- Renovación automática de tokens (`automaticSilentRenew`)
+- Logout con redirección (`signoutRedirect`)
+
+Puedes configurar los endpoints y client ID en `oidcConfig.ts`.
+
+---
+
+## 🧭 Rutas protegidas
+
+Ciertas vistas están protegidas con un guard de navegación que verifica si el usuario está autenticado. Si no lo está, se redirige automáticamente a la página de login.
+
+```ts
+router.beforeEach(async (to, _, next) => {
+  const isLoggedIn = await OidcService.isLoggedIn()
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    return OidcService.signinRedirect()
+  }
+  next()
+})
 ```
 
-### Type-Check, Compile and Minify for Production
+## 🧩 Cómo extender esta plantilla
 
-```sh
-npm run build
-```
+✅ Agrega roles/permisos usando Pinia o middleware en el router.
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+📦 Integra llamadas API protegidas usando JwtService + Axios interceptors.
 
-```sh
-npm run test:unit
-```
+🔐 Usa scopes de autorización y claims personalizados desde el ID Token.
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+📊 Incorpora librerías como Chart.js, VueUse, o Vue Query para dashboards.
