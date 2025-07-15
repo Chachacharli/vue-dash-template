@@ -7,7 +7,6 @@ import { provide, onMounted, ref } from 'vue'
 import userManager from './userManager'
 import { User } from 'oidc-client-ts'
 import { useRouter } from 'vue-router'
-import { useSessionWatcher } from '@/composables/useSessionWatcher'
 
 const router = useRouter()
 
@@ -43,7 +42,6 @@ onMounted(() => {
     user.value = null
     router.push('/login')
   })
-  useSessionWatcher()
 })
 
 provide('auth', {

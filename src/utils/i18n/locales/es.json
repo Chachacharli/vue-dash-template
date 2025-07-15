@@ -27,5 +27,14 @@
     "canSingIn": "Puedes iniciar sesión con tu nombre de usuario o correo electrónico.",
     "processLogin": "Procesando tu inicio de sesión...",
     "processLogOut": "Procesando tu cierre de sesión..."
+  },
+  "idleModal": {
+    "stillThere": "¿Sigues ahí?",
+    "imAlive": "Estoy activo",
+    "title": "Sesión inactiva",
+    "message": "Tu sesión ha estado inactiva por un tiempo. ¿Deseas continuar?",
+    "continueButton": "Continuar",
+    "logoutButton": "Cerrar sesión",
+    "countdownMessage": "Te has quedado inactivo por {countdown} segundos."
   }
 }
