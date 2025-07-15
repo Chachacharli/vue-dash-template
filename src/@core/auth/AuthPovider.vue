@@ -23,6 +23,12 @@ function startSessionWatcher(logoutCallback: () => void) {
     console.warn('[Auth] Silent renew falló, cerrando sesión', error)
     logoutCallback()
   })
+
+  userManager.events.addUserSignedOut(() => {
+    console.warn('[Auth] El usuario fue deslogueado desde el IdP')
+    userManager.removeUser()
+    router.push('/login')
+  })
 }
 
 const checkUser = async () => {
