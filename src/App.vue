@@ -1,11 +1,13 @@
 <template>
-  <ToastProvider swipe-direction="right">
-    <component :is="currentLayout">
-      <RouterView />
-    </component>
-    <ToastContainer />
-    <ToastViewport class="fixed top-0 right-0 p-4 flex flex-col gap-2" />
-  </ToastProvider>
+  <AuthPovider>
+    <ToastProvider swipe-direction="right">
+      <component :is="currentLayout">
+        <RouterView />
+      </component>
+      <ToastContainer />
+      <ToastViewport class="fixed top-0 right-0 p-4 flex flex-col gap-2" />
+    </ToastProvider>
+  </AuthPovider>
 </template>
 
 <script setup lang="ts">
@@ -16,6 +18,7 @@ import FlatLayout from './views/Layouts/FlatLayout.vue'
 import { useSidebarStore } from './stores/sidenav'
 import { ToastProvider, ToastViewport } from 'reka-ui'
 import ToastContainer from './components/toast/ToastContainer.vue'
+import AuthPovider from './@core/auth/AuthPovider.vue'
 
 const route = useRoute()
 const sidebarStore = useSidebarStore()
