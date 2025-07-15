@@ -5,17 +5,15 @@
       <p class="text-gray-700 mb-4">
         {{ $t('idleModal.countdownMessage', { countdown }) }}
       </p>
-      <button
-        class="px-4 py-2 bg-royal-purple-600 text-white rounded hover:bg-royal-purple-700 transition"
-        @click="$emit('stayActive')"
-      >
+      <dash-button @click="$emit('stayActive')" size="md" variant="primary">
         {{ $t('idleModal.imAlive') }}
-      </button>
+      </dash-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import DashButton from '@/components/buttons/DashButton.vue'
 defineProps<{ visible: boolean; countdown: number }>()
 defineEmits(['stayActive'])
 </script>
