@@ -25,7 +25,7 @@ router.beforeEach((to, from, next) => {
   const auth = useAuthStore()
   const ui = useUiStore()
   ui.setLoading(true)
-
+  debugger
   // Revisar si el ususario está autenticado y si la ruta requiere autenticación (solo Login y Unauthorized no requieren autenticación)
   // Cambiar el to.meta.requiresAuth a !to.meta.requiresAuth para que todas las rutas requieran autenticación por defecto
   if (to.meta.requiresAuth && !auth.user) {
@@ -41,6 +41,14 @@ router.beforeEach((to, from, next) => {
 
   if (allowedRoles && !allowedRoles.includes(userRole)) {
     return next({ name: 'unauthorized' })
+  }
+
+  if (to.path === '/') {
+    if (auth.user) {
+      return next({ name: 'dashboard' })
+    } else {
+      return next({ name: 'login' })
+    }
   }
 
   next()
