@@ -7,3 +7,15 @@ export const IDLE_CONFIG = {
   WARNING_TIME: 25,
   WHITE_LIST: ['/login', '/login-callback', '/logout-callback'],
 }
+
+
+export enum ROLES {
+  ADMIN = 'admin',
+  USER = 'user',
+  GUEST = 'guest',
+}
+
+export const ROLES_MAP = {
+  ALL: [ROLES.ADMIN, ROLES.USER, ROLES.GUEST],
+  ADMIN: [ROLES.ADMIN],
+}

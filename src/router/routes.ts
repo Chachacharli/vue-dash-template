@@ -3,6 +3,7 @@ import BaseHome from '@/views/BaseHome.vue'
 import ComponentsTemplate from '@/views/ComponentsTemplate.vue'
 import ArchiveComponent from '@/views/ArchiveComponent.vue'
 import FormsView from '@/views/FormsView.vue'
+import { ROLES, ROLES_MAP } from '@/@core/auth/constasts'
 
 const ROUTES: RouteRecordRaw[] = [
   {
@@ -12,6 +13,7 @@ const ROUTES: RouteRecordRaw[] = [
     meta: {
       title: 'home',
       icon: 'home',
+      roles: ROLES_MAP.ALL
     },
   },
   {
@@ -21,6 +23,7 @@ const ROUTES: RouteRecordRaw[] = [
     meta: {
       title: 'components',
       icon: 'layout',
+      roles: ROLES_MAP.ALL
     },
   },
   {
@@ -30,6 +33,7 @@ const ROUTES: RouteRecordRaw[] = [
     meta: {
       title: 'forms',
       icon: 'layout',
+      roles: ROLES_MAP.ALL
     },
   },
   {
@@ -39,6 +43,7 @@ const ROUTES: RouteRecordRaw[] = [
     meta: {
       title: 'archive',
       icon: 'archive',
+      roles: ROLES_MAP.ALL
     },
   },
 ]
