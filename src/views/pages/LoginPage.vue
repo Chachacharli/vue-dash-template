@@ -12,34 +12,35 @@
     </section>
 
     <!-- Lado derecho (formulario) -->
-    <section class="flex w-80 md:w-1/2 items-center justify-center p-6 bg-white rounded-3xl md:rounded-none min-h-48 md:min-h-0">
+    <section class="flex w-80 md:w-1/2 items-center justify-center p-6 bg-white dark:bg-dark-950 rounded-3xl md:rounded-none min-h-48 md:min-h-0">
       <div class="md:w-full md:max-w-md">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center md:text-left">
+        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-300 mb-6 text-center md:text-left">
           {{ $t('loginPage.title') }}
         </h2>
         <section name="form-login" class="space-y-4">
           <div>
-            <label class="block text-sm text-gray-600">{{ $t('loginPage.usernameOrEmail') }}</label>
+            <label class="block text-sm text-gray-600 dark:text-gray-300">{{ $t('loginPage.usernameOrEmail') }}</label>
             <input
               type="text"
-              class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              class="mt-1 w-full px-4 py-2 border placeholder:text-black dark:placeholder:text-soft-dark-400 border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none"
               placeholder="Username or email"
             />
           </div>
 
           <div>
-            <label class="block text-sm text-gray-600">{{ $t('loginPage.password') }}</label>
+            <label class="block text-sm text-gray-600 dark:text-gray-300">{{ $t('loginPage.password') }}</label>
             <input
               type="password"
-              class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              class="mt-1 w-full px-4 py-2 border placeholder:text-black dark:placeholder:text-soft-dark-400 border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none"
               placeholder="Password"
             />
           </div>
 
           <div class="flex justify-between items-center text-sm text-gray-600">
             <label class="inline-flex items-center">
-              <input type="checkbox" class="form-checkbox text-purple-600" />
-              <span class="ml-2">{{ $t('loginPage.rememberMe') }}</span>
+              <!-- Cuando el imput este checked cambiar el color por default a royal purple -->
+              <input type="checkbox" class="form-checkbox text-purple-600 accent-purple-600" />
+              <span class="ml-2 dark:text-gray-500">{{ $t('loginPage.rememberMe') }}</span>
             </label>
             <a href="#" class="text-purple-600 hover:underline">{{ $t('loginPage.forgotPassword') }}</a>
           </div>

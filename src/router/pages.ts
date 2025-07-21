@@ -6,7 +6,7 @@ import LogoutCallbackPage from '@/views/pages/LogoutCallbackPage.vue'
 import Unauthorized from '@/views/pages/Unauthorized.vue'
 
 export const PAGES = [
-  { path: '/:pathMatch(.*)*', component: NotFound, meta: { layout: 'flat' } },
+  { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound, meta: { layout: 'flat' } },
   { path: '/sing-in', component: SingIn, meta: { layout: 'flat' } },
   { path: '/login', name: 'login', component: LoginPage, meta: { layout: 'flat', requiresAuth: false } },
   { path: '/login-callback', component: LoginCallbackPage, meta: { layout: 'flat' } },
