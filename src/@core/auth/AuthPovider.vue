@@ -7,8 +7,10 @@ import { provide, onMounted, ref } from 'vue'
 import userManager from './userManager'
 import { User } from 'oidc-client-ts'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/authStore'
 
 const router = useRouter()
+const authStore = useAuthStore()
 
 const isAuthenticated = ref(false)
 const user = ref<User | null>(null)
@@ -35,6 +37,7 @@ const checkUser = async () => {
   const currentUser = await userManager.getUser()
   isAuthenticated.value = !!(currentUser && !currentUser.expired)
   user.value = currentUser
+  authStore.setUser(currentUser)
 }
 
 onMounted(() => {
@@ -46,6 +49,7 @@ onMounted(() => {
     userManager.removeUser()
     isAuthenticated.value = false
     user.value = null
+    authStore.setUser(null)
     router.push('/login')
   })
 })

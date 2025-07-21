@@ -9,7 +9,8 @@
   "forms": "Formularios",
   "backHome": "Volver a la página de inicio",
   "errorMessages": {
-    "pageNotFound": "Página no encontrada"
+    "pageNotFound": "Página no encontrada",
+    "notAuthorized": "No autorizado"
   },
   "validationMessages": {
     "maximunLength": "El campo debe tener un máximo de {maximun} caracteres",
