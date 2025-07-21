@@ -1,10 +1,10 @@
 <template>
   <main>
     <h1>Components</h1>
-    <section>
+    <section class="bg-transparent dark:bg-soft-dark-950">
       <DashContainer>
         <template #header>
-          <h3 class="text-slate-700 text-xl font-semibold sm:text-2xl">{{ $t('forms') }}</h3>
+          <h3 class="text-slate-700 dark:text-gray-300 text-xl font-semibold sm:text-2xl">{{ $t('forms') }}</h3>
         </template>
         <template #main>
           <DashFormGenerator

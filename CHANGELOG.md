@@ -1,5 +1,16 @@
 # vue-dash-template
 
+# 0.5.0 - 21/07/2025
+### Resumen
+Se agrega el darkmode a la aplicación, permitiendo a los usuarios cambiar entre el modo claro y oscuro. Se implementa el hidratador de tema para mantener la preferencia del usuario entre sesiones.
+
+## Mejoras
+- CT [273] Implementación del dakrmode en la aplicación.
+
+### Correcciones
+
+## Obsoleto
+
 # 0.4.0 - 20/07/2025
 ### Resumen
 Se agregó sistema de **permisos y scopes** basado en los claims del usuario autenticado, también se implementó un **wrapper de loading global** (`RouterLoadingProvider`) que muestra un overlay mientras cambian las rutas.

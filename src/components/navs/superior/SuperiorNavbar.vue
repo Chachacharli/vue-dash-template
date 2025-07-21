@@ -1,5 +1,5 @@
 <template>
-  <nav class="mb-2 p-2 bg-white rounded-xs shadow-2xs">
+  <nav class="mb-2 p-2 bg-white dark:bg-soft-dark-950 rounded-xs shadow-2xs">
     <div class="flex justify-between items-center">
       <div>
         <button @click="toggleSidebar" class="cursor-pointer">
@@ -8,20 +8,22 @@
       </div>
       <div class="flex space-x-2">
         <ripple-button @click="toggleTheme">
-          <vue-feather class="text-slate-600" type="sun"></vue-feather>
+          <transition name="icon-fade" mode="out-in">
+            <vue-feather :key="isDark" :type="isDark ? 'moon' : 'sun'" class="text-slate-600 dark:text-gray-300" />
+          </transition>
         </ripple-button>
         <ripple-button>
-          <vue-feather class="text-slate-600" type="bell"></vue-feather>
+          <vue-feather class="text-slate-600 dark:text-gray-300" type="bell"></vue-feather>
         </ripple-button>
         <ripple-button>
-          <vue-feather class="text-slate-600" type="info"></vue-feather>
+          <vue-feather class="text-slate-600 dark:text-gray-300" type="info"></vue-feather>
         </ripple-button>
         <div class="relative inline-block text-left">
           <!-- Botón del dropdown -->
           <button
             @click="toggleDropdown"
             type="button"
-            class="inline-flex justify-center w-full cursor-pointer rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-royal-purple-500"
+            class="inline-flex justify-center w-full cursor-pointer rounded-md px-4 py-2 bg-white dark:bg-soft-dark-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-royal-purple-500"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
@@ -45,7 +47,7 @@
           <!-- Menú del dropdown -->
           <div
             v-if="isOpen"
-            class="origin-top-right border border-gray-300 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white focus:outline-hidden"
+            class="origin-top-right border border-gray-300 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-soft-dark-700 focus:outline-hidden"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
@@ -53,8 +55,8 @@
           >
             <div class="py-1" role="none">
               <a
-                href="#"
-                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                href="/login"
+                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-soft-dark-600"
                 role="menuitem"
                 tabindex="-1"
                 id="menu-item-2"
@@ -78,7 +80,7 @@ const isOpen = ref(false)
 const $body = document.querySelector('body')
 import { useTheme } from '@/composables/useTheme'
 
-const { toggleTheme } = useTheme()
+const { toggleTheme, isDark } = useTheme()
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value

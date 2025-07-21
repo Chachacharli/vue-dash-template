@@ -10,7 +10,7 @@ const ui = useUiStore()
     <Transition name="fade">
       <div
         v-if="ui.isLoading"
-        class="fixed inset-0 bg-white/70 z-50 flex items-center justify-center pointer-events-auto transition-opacity"
+        class="fixed inset-0 bg-white/70 dark:bg-dark-950/70 z-50 flex items-center justify-center pointer-events-auto transition-opacity"
       >
         <DashDotLoader />
         <!-- Si prefieres usar un loader más sencillo puedes utilizar este por debajo -->

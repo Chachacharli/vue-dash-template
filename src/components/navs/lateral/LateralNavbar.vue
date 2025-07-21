@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-victoria-50 h-full transition-all" :class="isMobile ? 'w-0' : ''">
+  <div class="bg-victoria-50 dark:bg-dark-950 dark:text-white h-full transition-transform" :class="isMobile ? 'w-0' : ''">
     <div
       v-if="isMobileOpen && isMobile"
       class="fixed inset-0 bg-black/50 z-40"
       @click="closeMobileSidebar"
     ></div>
     <div class="h-[calc(100vh-30px)]">
-      <nav :class="navClasses" class="bg-white relative m-4 rounded-sm shadow">
+      <nav :class="navClasses" class="bg-white dark:bg-soft-dark-950 relative m-4 rounded-sm shadow">
         <div class="p-4 text-2xl font-bold">Mi App</div>
         <section class="flex-1">
           <ul class="mx-2">
-            <li class="text-slate-600 text-md text-semibold">
+            <li class="text-slate-600 text-md text-semibold dark:text-gray-300">
               <div>Pages</div>
               <hr class="mb-2 mt-1 border-t border-slate-300" />
             </li>
@@ -18,9 +18,9 @@
           </ul>
         </section>
         <section v-if="!isMobile" class="mt-2" name="sidenav-footer">
-          <button @click="toggleNavbar" class="absolute bottom-4 w-full p-2 cursor-pointer">
+          <button @click="toggleNavbar" class="absolute bottom-4 ml-2 p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-dark-800 rounded-md transition-colors">
             <span class="w-max flex justify-end items-end">
-              <vue-feather class="text-slate-600" type="sidebar"></vue-feather>
+              <vue-feather class="text-slate-600 dark:text-gray-300" type="sidebar"></vue-feather>
             </span>
           </button>
         </section>

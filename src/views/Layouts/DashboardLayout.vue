@@ -1,7 +1,7 @@
 <template>
   <section class="flex h-screen">
     <LateralNavbar />
-    <div class="p-4 flex-1 overflow-auto bg-victoria-50">
+    <div class="p-4 flex-1 overflow-auto bg-victoria-50 dark:bg-dark-950 dark:text-white">
       <SuperiorNavbar />
       <router-view v-slot="{ Component }">
         <transition

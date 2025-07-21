@@ -3,15 +3,15 @@
     class="p-2 mb-2 rounded-md transition-all relative group cursor-pointer"
     :class="[
       isActive
-        ? 'text-royal-purple-800 font-semibold bg-royal-purple-100'
-        : 'font-semibold text-slate-800 hover:bg-slate-100',
+        ? 'text-royal-purple-800 font-semibold bg-royal-purple-100 dark:bg-royal-purple-900 dark:text-white'
+        : 'font-semibold text-slate-800 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-dark-700',
       !isOpen ? 'flex items-center justify-center' : '',
     ]"
   >
     <router-link :to="props.item.path" class="flex space-x-2">
       <span>
         <vue-feather
-          :class="isActive ? 'text-royal-purple-800' : 'text-gray-500'"
+          :class="isActive ? 'text-royal-purple-800 dark:text-gray-300' : 'text-gray-500 dark:text-gray-300'"
           :type="props.item.meta?.icon ? props.item.meta.icon : 'circle'"
         ></vue-feather>
       </span>

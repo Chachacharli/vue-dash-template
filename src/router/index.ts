@@ -7,13 +7,13 @@ import { useUiStore } from '@/stores/useUiStore'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [...ROUTES, ...PAGES, { path: '/:pathMatch(.*)*', redirect: '/' }],
+  routes: [...ROUTES, ...PAGES],
 })
 
 router.afterEach((to, from) => {
   const ui = useUiStore()
 
-  if(to.name === 'login' || to.name === 'unauthorized') {
+  if(to.name === 'login' || to.name === 'unauthorized' || to.name === 'not-found') {
     ui.setLoading(false)
     return
   }
@@ -25,11 +25,11 @@ router.beforeEach((to, from, next) => {
   const auth = useAuthStore()
   const ui = useUiStore()
   ui.setLoading(true)
-  debugger
+  
   // Revisar si el ususario está autenticado y si la ruta requiere autenticación (solo Login y Unauthorized no requieren autenticación)
   // Cambiar el to.meta.requiresAuth a !to.meta.requiresAuth para que todas las rutas requieran autenticación por defecto
   if (to.meta.requiresAuth && !auth.user) {
-    if (to.name === 'login' || to.name === 'unauthorized') {
+    if (to.name === 'login' || to.name === 'unauthorized' || to.name === 'not-found') {
       return next()
     }
     return next({ name: 'login' })

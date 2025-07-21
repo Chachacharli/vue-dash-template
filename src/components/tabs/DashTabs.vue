@@ -1,25 +1,25 @@
 <template>
   <TabsRoot
     :default-value="props.triggers[0].title"
-    class="w-full bg-white border border-gray-200 rounded-md shadow-2xs relative"
+    class="w-full bg-white border border-gray-200 rounded-md shadow-2xs relative dark:bg-dark-950 dark:border-dark-900"
   >
-    <TabsList class="flex flex-wrap items-center px-4 gap-2 border-b border-gray-200 relative">
+    <TabsList class="flex flex-wrap items-center px-4 gap-2 border-b border-gray-200 dark:border-dark-900 relative">
       <TabsIndicator
-        class="absolute left-0 h-0.5 bottom-0 w-(--radix-tabs-indicator-size) translate-x-(--radix-tabs-indicator-position) bg-royal-purple-500 transition-all duration-300"
+        class="absolute left-0 h-0.5 bottom-0 w-(--radix-tabs-indicator-size) translate-x-(--radix-tabs-indicator-position) dark:bg-royal-purple-900 bg-royal-purple-500 transition-all duration-300"
       />
       <TabsTrigger
         v-for="trigger in props.triggers"
         :key="trigger.title"
         :value="trigger.title"
         :disabled="trigger.disabled"
-        class="relative cursor-pointer px-4 py-2 text-sm font-medium text-gray-600 data-[state=active]:text-gray-800 data-[state=active]:border-b-2 data-[state=active]:border-royal-purple-500 hover:bg-gray-50 focus:outline-hidden focus-visible:ring-3 data-disabled:text-gray-500 data-disabled:bg-gray-50 focus-visible:ring-blue-100"
+        class="relative dark:text-gray-200 cursor-pointer px-4 py-2 text-sm font-medium text-gray-600 data-[state=active]:text-gray-800 data-[state=active]:border-b-2 data-[state=active]:border-royal-purple-500 hover:bg-gray-50 dark:hover:bg-dark-800 focus:outline-hidden focus-visible:ring-3 data-disabled:text-gray-500 data-disabled:bg-gray-50 focus-visible:ring-blue-100"
       >
         {{ trigger.title }}
         <span
           v-if="trigger.notifications"
-          class="inline-block items-center justify-center rounded-full bg-royal-purple-50 px-2 py-0.5 text-center text-xs font-medium text-royal-purple-500"
+          class="inline-block items-center justify-center rounded-full dark:bg-royal-purple-900 bg-royal-purple-50 px-2 py-0.5 text-center text-xs font-medium text-royal-purple-500"
         >
-          <DashTypography variant="caption" class="text-xs">
+          <DashTypography variant="caption" class="text-xs dark:text-white">
             {{ trigger.notifications }}
           </DashTypography>
         </span>

@@ -1,7 +1,7 @@
 <template>
   <ProgressRoot
     v-model="progressStyles"
-    :class="['relative overflow-hidden bg-gray-100 rounded-full w-full', sizeClasses[props.size]]"
+    :class="['relative overflow-hidden bg-gray-100 dark:bg-dark-950 rounded-full w-full', sizeClasses[props.size]]"
     style="transform: translateZ(0)"
   >
     <ProgressIndicator

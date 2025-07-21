@@ -179,16 +179,16 @@
         <DashTypography variant="h3">Tabs</DashTypography>
         <DashTabs :triggers="triggers">
           <DashTab value="overview">
-            <h3 class="font-semibold text-gray-800 mb-2">Overview</h3>
-            <p>Contenido de la pestaña "Overview".</p>
+            <h3 class="font-semibold text-gray-800 mb-2 dark:text-gray-300">Overview</h3>
+            <p class="dark:text-gray-300">Contenido de la pestaña "Overview".</p>
           </DashTab>
           <DashTab value="notification">
-            <h3 class="font-semibold text-gray-800 mb-2">Notification</h3>
-            <p>Contenido de la pestaña "Notification".</p>
+            <h3 class="font-semibold text-gray-800 mb-2 dark:text-gray-300">Notification</h3>
+            <p class="dark:text-gray-300">Contenido de la pestaña "Notification".</p>
           </DashTab>
           <DashTab value="other">
-            <h3 class="font-semibold text-gray-800 mb-2">Other</h3>
-            <p>Contenido de la pestaña "Other".</p>
+            <h3 class="font-semibold text-gray-800 mb-2 dark:text-gray-300">Other</h3>
+            <p class="dark:text-gray-300">Contenido de la pestaña "Other".</p>
           </DashTab>
         </DashTabs>
       </DashPanel>
@@ -202,28 +202,28 @@
             <template #ribbon> New </template>
             <div class="p-4 rounded-sm shadow-2xs w-100">
               <h2 class="text-lg font-semibold">Mi Producto</h2>
-              <p class="text-gray-700">Descripción del producto...</p>
+              <p class="text-gray-700 dark:text-gray-300">Descripción del producto...</p>
             </div>
           </DashRibbon>
           <DashRibbon variant="primary" position="top-left">
             <template #ribbon> New </template>
             <div class="p-4 rounded-sm shadow-2xs w-100 text-end">
               <h2 class="text-lg font-semibold">Mi Producto</h2>
-              <p class="text-gray-700">Descripción del producto...</p>
+              <p class="text-gray-700 dark:text-gray-300">Descripción del producto...</p>
             </div>
           </DashRibbon>
           <DashRibbon variant="primary" position="bottom-right">
             <template #ribbon> New </template>
             <div class="p-4 rounded-sm shadow-2xs w-100">
               <h2 class="text-lg font-semibold">Mi Producto</h2>
-              <p class="text-gray-700">Descripción del producto...</p>
+              <p class="text-gray-700 dark:text-gray-300">Descripción del producto...</p>
             </div>
           </DashRibbon>
           <DashRibbon :reveal-on-hover="true" icon="star" variant="primary" position="top-right">
             <template #ribbon> New </template>
             <div class="p-4 rounded-sm shadow-2xs w-100">
               <h2 class="text-lg font-semibold">Ribbon in Hover</h2>
-              <p class="text-gray-700">Descripción del producto...</p>
+              <p class="text-gray-700 dark:text-gray-300">Descripción del producto...</p>
             </div>
           </DashRibbon>
         </section>
@@ -406,14 +406,14 @@
           </template>
           <template #footer>
             <section class="flex flex-col gap-4">
-              <DashTypography variant="caption" class="text-gray-500 dark:text-gray-400">
+              <DashTypography variant="caption" class="text-gray-500 dark:text-gray-300">
                 Simple Card
               </DashTypography>
               <DashLink text="See more" icon icon-position="right" />
             </section>
           </template>
           <template #body>
-            <DashTypography variant="body" class="text-gray-600 dark:text-gray-400 mb-2">
+            <DashTypography variant="body" class="text-gray-600 dark:text-gray-300 mb-2">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto aspernatur
               cum et ipsum
             </DashTypography>

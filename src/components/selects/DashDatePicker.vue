@@ -48,11 +48,11 @@ watch(
 
 <template>
   <fieldset :name="props.name" class="">
-    <label v-if="props.label" class="text-slate-700"> {{ props.label }}</label>
+    <label v-if="props.label" class="text-slate-700 dark:text-gray-300"> {{ props.label }}</label>
     <DatePickerRoot id="date-field" v-model="selectedDate as CalendarDate">
       <DatePickerField
         v-slot="{ segments }"
-        class="flex max-h-[35px] data-[valid=false]:border-red-500 data-[valid=false]:border-2 data-[valid=false]:ring-red focus:ring-2 focus:ring-royal-purple-500 bg-white shadow-2xs shadow-royal-purple-800/10 items-center justify-between rounded-sm text-center border border-gray-400"
+        class="flex max-h-[35px] data-[valid=false]:border-red-500 data-[valid=false]:border-2 data-[valid=false]:ring-red focus:ring-2 focus:ring-royal-purple-500 bg-white dark:bg-soft-dark-700 shadow-2xs shadow-royal-purple-800/10 items-center justify-between rounded-sm text-center border border-gray-400"
         :data-valid="props.isValid"
       >
         <div class="flex items-center px-3">
@@ -64,7 +64,7 @@ watch(
             >
               <span
                 :class="[selectedDate ? 'text-slate-700' : 'text-slate-400']"
-                class="focus:ring-2 focus:ring-royal-purple-500 text-sm"
+                class="focus:ring-2 focus:ring-royal-purple-500 text-sm dark:text-gray-300 "
                 >{{ item.value }}</span
               >
             </DatePickerInput>
@@ -75,7 +75,7 @@ watch(
             >
               <span
                 :class="[selectedDate ? 'text-slate-700' : 'text-slate-400']"
-                class="focus:ring-royal-purple-500 focus:outline-none"
+                class="focus:ring-royal-purple-500 focus:outline-none dark:text-gray-300 "
                 >{{ item.value }}</span
               >
             </DatePickerInput>
@@ -85,7 +85,7 @@ watch(
         <DatePickerTrigger class="rounded-sm p-1 focus:ring-2 focus:ring-royal-purple-500">
           <vue-feather
             size="20"
-            class="focus:ring-2 focus:ring-royal-purple-500"
+            class="focus:ring-2 focus:ring-royal-purple-500 dark:text-royal-purple-300"
             :class="[selectedDate ? 'text-royal-purple-800' : 'text-slate-400']"
             type="calendar"
           />
@@ -94,20 +94,20 @@ watch(
 
       <DatePickerContent
         :side-offset="4"
-        class="rounded-xl bg-white shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2)] will-change-[transform,opacity] data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade"
+        class="rounded-xl bg-white dark:border dark:border-gray-300 dark:bg-soft-dark-700 shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2)] will-change-[transform,opacity] data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade"
       >
         <DatePickerArrow class="fill-white" />
         <DatePickerCalendar v-slot="{ weekDays, grid }" class="p-4">
           <DatePickerHeader class="flex items-center justify-between">
             <DatePickerPrev
-              class="inline-flex items-center cursor-pointer text-slate-700 justify-center rounded-[9px] bg-transparent w-8 h-8 hover:bg-royal-purple-800 hover:text-white active:scale-98 active:transition-all focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-800"
+              class="inline-flex items-center cursor-pointer text-slate-700 dark:text-gray-300 justify-center rounded-[9px] bg-transparent w-8 h-8 hover:bg-royal-purple-800 hover:text-white active:scale-98 active:transition-all focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-800"
             >
               <vue-feather type="chevron-left" class="w-6 h-6" />
             </DatePickerPrev>
 
-            <DatePickerHeading class="text-slate-700 font-medium" />
+            <DatePickerHeading class="text-slate-700 dark:text-gray-300 font-medium" />
             <DatePickerNext
-              class="inline-flex items-center cursor-pointer text-slate-700 justify-center rounded-[9px] bg-transparent w-8 h-8 hover:bg-royal-purple-800 hover:text-white active:scale-98 active:transition-all focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-700 focus:bg-royal-purple-800"
+              class="inline-flex items-center cursor-pointer text-slate-700 dark:text-gray-300 justify-center rounded-[9px] bg-transparent w-8 h-8 hover:bg-royal-purple-800 hover:text-white active:scale-98 active:transition-all focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-700 focus:bg-royal-purple-800"
             >
               <vue-feather type="chevron-right" class="w-6 h-6" />
             </DatePickerNext>
@@ -123,7 +123,7 @@ watch(
                   <DatePickerHeadCell
                     v-for="day in weekDays"
                     :key="day"
-                    class="w-8 rounded-md text-xs text-slate-700"
+                    class="w-8 rounded-md text-xs text-slate-700 dark:text-gray-300"
                   >
                     {{ day }}
                   </DatePickerHeadCell>
@@ -143,7 +143,7 @@ watch(
                     <DatePickerCellTrigger
                       :day="weekDate"
                       :month="month.value"
-                      class="relative hover:bg-royal-purple-200 flex items-center justify-center whitespace-nowrap rounded-[9px] border border-transparent bg-transparent text-sm font-normal text-slate-700 w-8 h-8 outline-hidden focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-800 hover:border-royal-purple-800 data-selected:bg-royal-purple-700 data-selected:font-medium data-disabled:text-slate-700/30 data-selected:text-royal-purple-100 data-unavailable:pointer-events-none data-unavailable:text-slate-700/30 data-unavailable:line-through before:absolute before:top-[5px] before:hidden before:rounded-full before:w-1 before:h-1 before:bg-white data-today:before:block data-selected:before:bg-white"
+                      class="relative hover:bg-royal-purple-200 dark:hover:bg-royal-purple-600 cursor-pointer dark:text-gray-300 flex items-center justify-center whitespace-nowrap rounded-[9px] border border-transparent bg-transparent text-sm font-normal text-slate-700 w-8 h-8 outline-hidden focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-800 hover:border-royal-purple-800 data-selected:bg-royal-purple-700 data-selected:font-medium data-disabled:text-slate-700/30 data-selected:text-royal-purple-100 data-unavailable:pointer-events-none data-unavailable:text-slate-700/30 data-unavailable:line-through before:absolute before:top-[5px] before:hidden before:rounded-full before:w-1 before:h-1 before:bg-white data-today:before:block data-selected:before:bg-white"
                     />
                   </DatePickerCell>
                 </DatePickerGridRow>

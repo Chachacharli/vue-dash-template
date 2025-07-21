@@ -1,6 +1,6 @@
 <template>
   <button :type="buttonType" :disabled="loading" :class="buttonClasses">
-    <span class="relative z-10">
+    <span class="relative z-2">
       <slot></slot>
     </span>
 
@@ -27,8 +27,8 @@ const buttonType = variant === 'submit' ? 'submit' : 'button'
 const loading = ref(props.loading)
 
 const buttonVariants = {
-  submit: 'bg-royal-purple-800 focus:ring-royal-purple-500 hover:bg-royal-purple-600',
-  cancel: 'bg-transparent text-slate-500 focus:ring-gray-300 hover:bg-gray-100',
+  submit: 'bg-royal-purple-800 focus:ring-royal-purple-500 hover:bg-royal-purple-600 cursor-pointer',
+  cancel: 'bg-transparent text-slate-500 focus:ring-gray-300 hover:bg-gray-100 cursor-pointer',
 }
 
 const buttonClasses = computed(() => {
