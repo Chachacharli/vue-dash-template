@@ -1,5 +1,19 @@
 # vue-dash-template
 
+# 0.4.0 - 20/07/2025
+### Resumen
+Se agregó sistema de **permisos y scopes** basado en los claims del usuario autenticado, también se implementó un **wrapper de loading global** (`RouterLoadingProvider`) que muestra un overlay mientras cambian las rutas.
+
+## Mejoras
+- CT [272] Implementación del sistema de permisos y scopes basado en los claims del usuario
+- CT [272] Implementación del wrapper de loading global (`RouterLoadingProvider`)
+
+### Correcciones
+
+## Obsoleto
+
+
+
 ## 0.3.0 - 15/07/2025
 
 ### Resumen

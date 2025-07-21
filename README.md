@@ -98,12 +98,82 @@ router.beforeEach(async (to, _, next) => {
 })
 ```
 
-## 🧩 Cómo extender esta plantilla
+## Sistema de Roles y Scopes
+Esta plantilla incluye un sistema completo de permisos basado en los claims del usuario autenticado desde OIDC (oidc-client-ts). Se centraliza en un AuthProvider que provee los datos del usuario, y una authStore (Pinia) que sincroniza los claims como role, permissions, etc.
 
-✅ Agrega roles/permisos usando Pinia o middleware en el router.
+Las rutas pueden restringirse usando meta.roles o meta.requiresAuth.
 
-📦 Integra llamadas API protegidas usando JwtService + Axios interceptors.
+Se puede validar acceso granular con un composable:
 
-🔐 Usa scopes de autorización y claims personalizados desde el ID Token.
+```ts
+const { can, hasPermission } = usePermissions()
 
-📊 Incorpora librerías como Chart.js, VueUse, o Vue Query para dashboards.
+can(['admin']) // true si el usuario tiene el rol
+hasPermission('user:delete') // true si tiene el scope
+```
+También puedes usar el componente <Can /> para mostrar u ocultar contenido según permisos.
+
+```vue
+<Can I="view" a="dashboard">
+  <p>Contenido protegido para usuarios con permiso para ver el dashboard.</p>
+</Can>
+```
+
+### Componente `<Can />`
+Componente `<Can />`
+Este componente permite mostrar u ocultar contenido basado en:
+
+- Roles (props.roles)
+- Permisos o scopes (props.permissions)
+
+Archivo: `src/components/auth/Can.vue`
+```vue
+  <script setup lang="ts">
+  import { usePermissions } from '@/composables/usePermissions'
+
+  const props = defineProps<{
+    roles?: string[] | string
+    permissions?: string[] | string
+  }>()
+
+  const { can, hasPermission } = usePermissions()
+
+  const isAllowed = computed(() => {
+    if (props.roles) {
+      const roles = Array.isArray(props.roles) ? props.roles : [props.roles]
+      return can(roles)
+    }
+
+    if (props.permissions) {
+      const perms = Array.isArray(props.permissions)
+        ? props.permissions
+        : [props.permissions]
+      return perms.some((p) => hasPermission(p))
+    }
+
+    return false
+  })
+  </script>
+
+  <template>
+    <slot v-if="isAllowed" />
+  </template>
+```
+Puedes usar `<Can />` para proteger fragmentos de interfaz según los roles o permisos del usuario.
+
+
+
+## Loading Global Automático
+Se incluye un wrapper RouterLoadingProvider que muestra un spinner mientras cambias de ruta, útil para transiciones suaves o indicaciones visuales globales.
+
+Uso por defecto en App.vue:
+
+```vue
+  <!-- From App.vue -->
+  <RouterLoadingProvider>
+    <router-view />
+  </RouterLoadingProvider>
+```
+
+Puedes reemplazar el loader visual o integrarlo dentro de cualquier layout personalizado.
+

@@ -55,7 +55,7 @@ const closeMobileSidebar = () => {
 }
 
 const navClasses = computed(() => {
-  const baseClasses = 'fixed top-0 left-0 h-full bg-gray-800 transition-all z-50'
+  const baseClasses = 'fixed top-0 left-0 h-full bg-gray-800 transition-all z-[49]'
 
   const mobileClasses = isMobile.value
     ? isMobileOpen.value
