@@ -1,6 +1,6 @@
 <template>
-  <form :id="props.id" name="form-generator">
-    <div class="my-2 grid md:grid-cols-4 grid-cols-1 gap-4">
+  <form :id="props.id" class="bg-white dark:bg-soft-dark-950 dark:text-gray-300" name="form-generator">
+    <div class="my-2 grid md:grid-cols-4 grid-cols-1 gap-4 bg-white dark:bg-soft-dark-950">
       <template v-for="field in fields">
         <DashSelect
           v-if="field.type === InputTypes.Select"

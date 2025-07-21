@@ -8,6 +8,7 @@ import VueFeather from 'vue-feather'
 
 import i18n from './utils/i18n/i18n'
 import './assets/input.css'
+import './assets/main.css'
 
 const app = createApp(App)
 

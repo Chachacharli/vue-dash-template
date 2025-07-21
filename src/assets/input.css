@@ -2,6 +2,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme {
   --color-royal-purple-50: #faf6fe;
   --color-royal-purple-100: #f2ebfc;
@@ -38,6 +39,33 @@
   --color-victoria-800: #574a89;
   --color-victoria-900: #49416e;
   --color-victoria-950: #2b2640;
+
+  /* Dark mode only */
+  --color-dark-50:  #f6f6f6;
+  --color-dark-100: #e7e7e7;
+  --color-dark-200: #d1d1d1;
+  --color-dark-300: #b0b0b0;
+  --color-dark-400: #888888;
+  --color-dark-500: #6d6d6d;
+  --color-dark-600: #5d5d5d;
+  --color-dark-700: #4f4f4f;
+  --color-dark-800: #454545;
+  --color-dark-900: #3d3d3d;
+  --color-dark-950: #242424;
+
+  --color-soft-dark-50:  #f6f6f6;
+  --color-soft-dark-100: #e7e7e7;
+  --color-soft-dark-200: #d1d1d1;
+  --color-soft-dark-300: #b0b0b0;
+  --color-soft-dark-400: #888888;
+  --color-soft-dark-500: #6d6d6d;
+  --color-soft-dark-600: #5d5d5d;
+  --color-soft-dark-700: #4f4f4f;
+  --color-soft-dark-800: #454545;
+  --color-soft-dark-900: #3d3d3d;
+  --color-soft-dark-950: #2d2d2d;
+
+
 
   --animate-ripple: ripple 0.6s ease-out;
   --animate-hide: hide 100ms ease-in;

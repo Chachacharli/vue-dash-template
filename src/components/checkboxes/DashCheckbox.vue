@@ -18,11 +18,11 @@ watch(
   <fieldset :name="props.name">
     <div class="flex flex-col">
       <label class="flex flex-col gap-4 [&>.checkbox]:hover:bg-neutral-100 cursor-pointer">
-        <span v-if="props.label" class="select-none text-slate-700">{{ props.label }}</span>
+        <span v-if="props.label" class="select-none text-slate-700 dark:text-gray-300">{{ props.label }}</span>
       </label>
       <CheckboxRoot
         v-model:checked="checkboxOne"
-        class="focus:ring-2 border focus:ring-royal-purple-500 data-[valid=false]:border-red-500 data-[valid=false]:ring-red-500 data-[valid=false]:ring-2 data-[valid=false]:border-2 hover:bg-royal-purple-50 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-lg outline-hidden focus-within:shadow-[0_0_0_2px_black]"
+        class="focus:ring-2 border dark:border-gray-400 focus:ring-royal-purple-500 data-[valid=false]:border-red-500 data-[valid=false]:ring-red-500 data-[valid=false]:ring-2 data-[valid=false]:border-2 hover:bg-royal-purple-50 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white dark:bg-soft-dark-700 shadow-lg outline-hidden focus-within:shadow-[0_0_0_2px_black]"
         :data-valid="props.isValid"
       >
         <CheckboxIndicator

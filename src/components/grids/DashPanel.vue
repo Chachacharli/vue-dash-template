@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-lg shadow-md bg-white"
+    class="rounded-lg shadow-md bg-white dark:bg-soft-dark-950"
     :class="[panelStyles.gridColumn, panelStyles.gridRow, panelStyles.padding]"
   >
     <slot></slot>

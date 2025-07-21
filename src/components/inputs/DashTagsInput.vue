@@ -25,12 +25,12 @@ watch(
 <template>
   <fieldset :name="props.name">
     <label :for="props.id">
-      <span class="text-slate-700" v-if="props.label">{{ props.label }}</span>
+      <span class="text-slate-700 dark:text-gray-300" v-if="props.label">{{ props.label }}</span>
     </label>
     <TagsInputRoot
       :id="props.id"
       v-model="modelValue"
-      class="flex gap-2 items-center border border-gray-400 shadow-2xs p-2 rounded-sm w-full max-w-[480px] flex-wrap bg-white hover:bg-royal-purple-50"
+      class="flex gap-2 items-center border border-gray-400 shadow-2xs p-2 rounded-sm w-full max-w-[480px] flex-wrap bg-white dark:bg-soft-dark-700 hover:bg-royal-purple-50"
       :class="{
         'ring-2 ring-royal-purple-500': isInputFocused,
         'data-[valid=false]:border-red-500 data-[valid=false]:border-2 data-[valid=false]:ring-red':

@@ -19,7 +19,7 @@ watch(
     <div class="gap-2 items-center">
       <label
         v-if="props.label"
-        class="text-slate-700 text-[15px] leading-none pr-[15px] select-none"
+        class="text-slate-700 dark:text-gray-300 text-[15px] leading-none pr-[15px] select-none"
         for="airplane-mode"
       >
         {{ props.label }}

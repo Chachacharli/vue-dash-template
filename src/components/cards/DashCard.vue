@@ -1,5 +1,5 @@
 <template>
-  <div role="group" class="relative p-6 bg-white rounded-lg border border-gray-200">
+  <div role="group" class="relative p-6 bg-white dark:bg-dark-800 rounded-lg border border-gray-200 dark:border-dark-900">
     <component :is="COMPONENT_CARDS[props.type]" v-bind="props">
       <template #header>
         <slot name="header"></slot>

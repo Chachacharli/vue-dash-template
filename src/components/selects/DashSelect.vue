@@ -33,10 +33,10 @@ selectedValue.value = props.modelValue
 
 <template>
   <fieldset :name="props.name">
-    <label v-if="props.label" class="text-slate-700">{{ props.label }}</label>
+    <label v-if="props.label" class="text-slate-700 dark:text-gray-300">{{ props.label }}</label>
     <SelectRoot class="w-max" v-model="selectedValue">
       <SelectTrigger
-        class="inline-flex border border-gray-400 w-[100%] data-[valid=false]:border-red-500 data-[valid=false]:border-2 data-[valid=false]:ring-red items-center justify-between rounded-sm px-[15px] text-[13px] leading-none h-[35px] gap-[5px] focus:ring-2 focus:ring-royal-purple-500 bg-white text-slate-800 shadow-2xs shadow-black/10 hover:bg-royal-purple-50 focus:shadow-[0_0_0_2px] focus:royal-purple-800 data-placeholder:text-slate-700 outline-hidden"
+        class="inline-flex border border-gray-400 dark:border-gray-400 dark:bg-soft-dark-700 w-[100%] data-[valid=false]:border-red-500 data-[valid=false]:border-2 data-[valid=false]:ring-red items-center justify-between rounded-sm px-[15px] text-[13px] leading-none h-[35px] gap-[5px] focus:ring-2 focus:ring-royal-purple-500 bg-white text-slate-800 shadow-2xs shadow-black/10 hover:bg-royal-purple-50  focus:shadow-[0_0_0_2px] focus:royal-purple-800 data-placeholder:text-slate-700 dark:data-placeholder:text-gray-100 dark:text-gray-300 outline-hidden"
         aria-label="Customise options"
         :data-valid="props.isValid"
       >
@@ -49,11 +49,11 @@ selectedValue.value = props.modelValue
 
       <SelectPortal>
         <SelectContent
-          class="min-w-[160px] bg-white rounded-xs shadow-lg will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-100"
+          class="min-w-[160px] bg-white dark:border-gray-50 dark:border dark:bg-soft-dark-700 rounded-xs shadow-lg will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-100"
           :side-offset="5"
         >
           <SelectScrollUpButton
-            class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default"
+            class="flex items-center justify-center h-[25px] bg-white dark:bg-soft-dark-700 text-violet11 cursor-default"
           >
             <vue-feather type="chevron-up" />
           </SelectScrollUpButton>
@@ -63,7 +63,7 @@ selectedValue.value = props.modelValue
               <SelectItem
                 v-for="(option, index) in options"
                 :key="index"
-                class="text-[13px] cursor-pointer leading-none text-slate-700 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-disabled:text-slate-500 data-disabled:pointer-events-none data-highlighted:outline-hidden data-highlighted:bg-royal-purple-100 data-highlighted:text-royal-purple-900 data-highlighted:shadow-inset data-highlighted:shadow-royal-purple-800"
+                class="text-[13px] cursor-pointer leading-none text-slate-700 dark:text-gray-300 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-disabled:text-slate-500 dark:data-disabled:text-soft-dark-400 data-disabled:pointer-events-none data-highlighted:outline-hidden data-highlighted:bg-royal-purple-100 dark:data-highlighted:bg-royal-purple-800 data-highlighted:text-royal-purple-900 data-highlighted:shadow-inset data-highlighted:shadow-royal-purple-800"
                 :value="String(option.value)"
                 :disabled="option.disabled"
               >

@@ -3,13 +3,6 @@ import { ref, onMounted, watchEffect } from 'vue'
 
 export function useTheme() {
   const isDark = ref(false)
-
-  onMounted(() => {
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    isDark.value = savedTheme ? savedTheme === 'dark' : prefersDark
-  })
-
   watchEffect(() => {
     const className = 'dark'
     const element = document.documentElement
