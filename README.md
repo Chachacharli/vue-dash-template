@@ -294,3 +294,25 @@ const { isDark, toggleTheme } = useTheme()
 **Retorna**
 - `isDark` (ref<boolean>) – Si el tema actual es oscuro.
 - `toggleTheme` (function) – Función para alternar entre temas.
+
+### useIntersectionObserver
+Un composable para detectar la visibilidad de un elemento en el viewport usando Intersection Observer.
+```ts
+import { useIntersectionObserver } from '@/composables/useIntersectionObserver'
+
+const boxRef = ref<HTMLElement | null>(null)
+
+const { isIntersecting } = useIntersectionObserver(boxRef, {
+  threshold: 0.5,
+  onIntersect: (entry) => {
+    console.log('Intersectó al 50%', entry)
+  },
+  once: false,
+})
+```
+**Props de entrada**
+- `elementRef` (ref<HTMLElement | null>) – Referencia al elemento a observar.
+- `options` (IntersectionObserverInit) – Opciones del observer (threshold, root, rootMargin).
+
+**Retorna**
+- `isIntersecting` (ref<boolean>) – Si el elemento está intersectando el viewport
