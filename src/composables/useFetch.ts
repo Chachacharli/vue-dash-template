@@ -9,6 +9,15 @@ interface UseFetchOptions<Params = Record<string, any>> {
   immediate?: boolean
 }
 
+/**
+ * Composable para realizar peticiones GET y manejar el estado de carga, datos y errores.
+ * @param url - URL del endpoint a consultar.
+ * @param options - Opciones para la petición, incluyendo parámetros y encabezados.
+ * @returns data - Ref que contiene los datos obtenidos de la petición.
+ * @returns loading - Ref que indica si la petición está en curso.
+ * @returns error - Ref que contiene cualquier error ocurrido durante la petición.
+ * @returns fetch - Función para realizar la petición manualmente.
+ */
 export function useFetch<T = any, Params = Record<string, any>>({ url, options = {} }: { url: string; options?: UseFetchOptions<Params> }) {
   const data = ref<T | null>(null)
   const loading = ref(false)

@@ -10,6 +10,17 @@ export interface DragOptions {
   onDragDown?: () => void
 }
 
+/**
+ * Composable para manejar eventos de arrastre (drag) en un elemento.
+ * Permite detectar la dirección del arrastre y ejecutar callbacks específicos.
+ * @param target - Ref al elemento objetivo donde se detectarán los arrastres.
+ * @param options - Opciones para configurar el comportamiento del arrastre.
+ * @returns deltaX - Ref que indica el desplazamiento horizontal del arrastre.
+ * @returns deltaY - Ref que indica el desplazamiento vertical del arrastre.
+ * @returns direction - Ref que indica la dirección del arrastre ('left', 'right', 'up', 'down').
+ * @returns progress - Ref que indica el progreso del arrastre (0 a 1).
+ * @returns isDragging - Ref que indica si se está arrastrando actualmente.
+ */
 export function useDrag(
   target: Ref<HTMLElement | null>,
   options: DragOptions = {}

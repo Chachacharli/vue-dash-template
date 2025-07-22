@@ -12,6 +12,14 @@ export interface SwipeOptions extends SwipeActions {
   threshold?: number
 }
 
+/**
+ * Composable para manejar gestos de swipe en un elemento.
+ * @param target - Ref al elemento objetivo donde se detectarán los swipes.
+ * @param options - Opciones para configurar los callbacks de swipe y el umbral.
+ * @returns progress - Ref que indica el progreso del swipe (0 a 1).
+ * @returns deltaX - Ref que indica el desplazamiento horizontal del swipe.
+ * @returns deltaY - Ref que indica el desplazamiento vertical del swipe.
+ */
 export function useSwipe(
   target: Ref<HTMLElement | null>,
   { onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown, threshold = 30 }: SwipeOptions,
