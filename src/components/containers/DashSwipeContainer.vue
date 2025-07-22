@@ -1,18 +1,18 @@
 <template>
-  <section
-    ref="target"
-    class="relative overflow-hidden"
-    name="swipe-container"
-  >
+  <section ref="target" class="relative overflow-hidden" name="swipe-container">
     <!-- Overlay animado -->
     <div
-    class="absolute inset-0 pointer-events-none z-10 flex items-center justify-center transition-all duration-200"
-    :style="{
+      v-if="direction && progress > 0.01"
+      class="absolute rounded-full z-10 pointer-events-none transition-all duration-200 flex items-center justify-center"
+      :style="{
+        width: '100px',
+        height: '100px',
         background: overlayColor,
-        opacity: progress > 0.05 ? Math.min(progress * 1.2, 0.8) : 0,
-    }"
+        opacity: Math.min(progress * 1.5, 0.8),
+        ...positionStyle,
+      }"
     >
-      <vue-feather :type="chevronIcon" class="text-white text-4xl" />
+      <vue-feather :type="chevronIcon" class="text-white w-8 h-8" />
     </div>
 
     <slot :progress="progress" :deltaX="deltaX" :deltaY="deltaY" />
@@ -20,10 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import { useSwipe } from '@/composables/useSwipe'
 import type { SwipeOptions } from '@/composables/useSwipe'
-import type { transform } from 'typescript';
 
 const props = defineProps<
   SwipeOptions & {
@@ -32,6 +31,7 @@ const props = defineProps<
 >()
 
 const target = ref<HTMLElement | null>(null)
+const containerRect = ref<DOMRect | null>(null)
 
 const { progress, deltaX, deltaY } = useSwipe(target, {
   onSwipeLeft: props.onSwipeLeft,
@@ -50,6 +50,22 @@ const direction = computed(() => {
   return deltaY.value > 0 ? 'down' : 'up'
 })
 
+const updateRect = () => {
+  if (target.value) {
+    containerRect.value = target.value.getBoundingClientRect()
+  }
+}
+
+// Actualiza al montar y si cambia el tamaño
+onMounted(() => {
+  updateRect()
+  window.addEventListener('resize', updateRect)
+})
+
+watch(target, () => {
+  updateRect()
+})
+
 // Chevron dinámico
 const chevronIcon = computed(() => {
   switch (direction.value) {
@@ -66,31 +82,50 @@ const chevronIcon = computed(() => {
   }
 })
 
-const originX = computed(() => {
-  switch (direction.value) {
-    case 'left':
-      return '100%'
-    case 'right':
-      return '0%'
-    case 'up':
-    case 'down':
-      return '50%'
-    default:
-      return '50%'
-  }
-})
+const positionStyle = computed(() => {
+  const rect = containerRect.value
+  const p = progress.value
 
-const originY = computed(() => {
+  if (!rect || p <= 0) {
+    return {
+      opacity: 0,
+      transform: 'scale(0)',
+    }
+  }
+
+  const maxOffsetX = rect.width / 2
+  const maxOffsetY = rect.height / 2
+
   switch (direction.value) {
-    case 'up':
-      return '100%'
-    case 'down':
-      return '0%'
     case 'left':
+      return {
+        top: `${rect.height / 2}px`,
+        left: `${rect.width}px`,
+        transform: `translateX(-${p * maxOffsetX}px) translateY(-50%)`,
+      }
     case 'right':
-      return '50%'
+      return {
+        top: `${rect.height / 2}px`,
+        left: `-100px`,
+        transform: `translateX(${p * maxOffsetX}px) translateY(-50%)`,
+      }
+    case 'up':
+      return {
+        left: `${rect.width / 2}px`,
+        top: `${rect.height}px`,
+        transform: `translateY(-${p * maxOffsetY}px) translateX(-50%)`,
+      }
+    case 'down':
+      return {
+        left: `${rect.width / 2}px`,
+        top: `-100px`,
+        transform: `translateY(${p * maxOffsetY}px) translateX(-50%)`,
+      }
     default:
-      return '50%'
+      return {
+        opacity: 0,
+        transform: 'scale(0)',
+      }
   }
 })
 

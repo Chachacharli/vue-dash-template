@@ -9,8 +9,8 @@
       :threshold="100"
     >
       <template #default="{ deltaX, deltaY, progress }">
-        <div class="bg-blue-700 min-h-screen min-w-full text-white">
-          {{ progress }} {{ deltaX }}, {{ deltaY }}
+        <div class="bg-soft-dark-700 min-h-screen min-w-full text-white">
+          <h2 class="font-bold">Hazme swipe !!</h2>
         </div>
       </template>
     </DashSwipeContainer>

@@ -40,7 +40,7 @@ export function useSwipe(
     deltaY.value = touch.clientY - startY
 
     const dist = Math.max(Math.abs(deltaX.value), Math.abs(deltaY.value))
-    progress.value = clamp(dist / threshold, 0, 1.5)
+    progress.value = clamp(dist / threshold, 0, 1)
   }
 
   const onTouchEnd = () => {
