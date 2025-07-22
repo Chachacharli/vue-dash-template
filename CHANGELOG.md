@@ -1,5 +1,23 @@
 # vue-dash-template
 
+# 0.6.0 - 22/07/2025
+### Resumen
+Se agrega una serie de hooks para mejorar la experiencia de desarrollo y facilitar la integración de nuevas funcionalidades. Estos hooks permiten a los desarrolladores personalizar el comportamiento de la aplicación en diferentes etapas del ciclo de vida del componente.
+
+## Mejoras
+- CT [274] Implementación de hooks para mejorar la experiencia de desarrollo y facilitar la integración de nuevas funcionalidades:
+    - `useDrag`: Permite manejar el arrastre de elementos en la interfaz de usuario.
+    - `useSwipe`: Facilita la detección de gestos de deslizamiento en dispositivos táctiles.
+    - `useFetch`: Simplifica la realización de peticiones HTTP y el manejo de estados de carga y error.
+    - `useDebounce`: Implementa una función de debounce para optimizar el rendimiento de eventos que se disparan con frecuencia.
+    - `useIDLE`: Proporciona un mecanismo para detectar la inactividad del usuario y ejecutar acciones específicas, como redirigir a una pantalla de bloqueo o cerrar sesión automáticamente.
+    - `useTheme`: Permite gestionar el tema de la aplicación, incluyendo la implementación del dark mode y el hidratador de tema para mantener la preferencia del usuario entre sesiones.
+  - CT [274] Se agrega un componente `DashSwipeContainer` que utiliza el hook `useSwipe` para manejar gestos de deslizamiento en la interfaz de usuario con animaciones.
+
+### Correcciones
+
+## Obsoleto
+
 # 0.5.0 - 21/07/2025
 ### Resumen
 Se agrega el darkmode a la aplicación, permitiendo a los usuarios cambiar entre el modo claro y oscuro. Se implementa el hidratador de tema para mantener la preferencia del usuario entre sesiones.

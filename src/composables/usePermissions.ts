@@ -1,5 +1,10 @@
 import { useAuthStore } from '@/stores/authStore'
 
+/**
+ * Composable para manejar permisos basados en roles y permisos del usuario.
+ * @returns can - Función que verifica si el usuario tiene uno de los roles especificados.
+ * @returns hasPermission - Función que verifica si el usuario tiene un permiso específico.
+ */
 export function usePermissions() {
   const auth = useAuthStore()
 

@@ -11,7 +11,6 @@
     - [📁 Archivos clave:](#📁-archivos-clave:)
     - [✅ Flujo Implementado:](#✅-flujo-implementado:)
   - [🧭 Rutas protegidas](#🧭-rutas-protegidas)
-  - [🧩 Cómo extender esta plantilla](#🧩-cómo-extender-esta-plantilla)
 
 
 ## 🚀 Descripción
@@ -101,7 +100,7 @@ router.beforeEach(async (to, _, next) => {
 ## Sistema de Roles y Scopes
 Esta plantilla incluye un sistema completo de permisos basado en los claims del usuario autenticado desde OIDC (oidc-client-ts). Se centraliza en un AuthProvider que provee los datos del usuario, y una authStore (Pinia) que sincroniza los claims como role, permissions, etc.
 
-Las rutas pueden restringirse usando meta.roles o meta.requiresAuth.
+Las rutas pueden restringirse usando `meta.roles` o `meta.requiresAuth`.
 
 Se puede validar acceso granular con un composable:
 
@@ -177,3 +176,143 @@ Uso por defecto en App.vue:
 
 Puedes reemplazar el loader visual o integrarlo dentro de cualquier layout personalizado.
 
+## Composables
+
+### useSwipe
+Detecta gestos de deslizamiento (swipe) con touchEvents para dispositivos móviles.
+```ts
+const {
+  direction,
+  progress,
+  isSwiping,
+  setSwipeHandlers,
+} = useSwipe({
+  threshold: 50,
+  onSwipeLeft: () => console.log('Swipe left'),
+  onSwipeRight: () => console.log('Swipe right'),
+  onSwipeUp: () => console.log('Swipe up'),
+  onSwipeDown: () => console.log('Swipe down'),
+})
+```
+**Props de entrada**
+- `threshold` (number) – Distancia mínima (en px) para detectar el swipe.
+
+- `onSwipeLeft`, `onSwipeRight`, `onSwipeUp`, `onSwipeDown` (function) – Callbacks para cada dirección.
+
+**Retorna**
+- `direction` (ref<'left' | 'right' | 'up' | 'down' | null>) – Dirección actual del swipe.
+
+- `progress` (ref<number>) – Progreso del swipe (de 0 a 1).
+
+- `isSwiping` (ref<boolean>) – Si se está haciendo swipe.
+
+- `setSwipeHandlers` (object) – Props para aplicar directamente a tu wrapper: @touchstart, @touchmove, @touchend.
+
+### useDrag
+Funciona igual que useSwipe pero con eventos de mouse para drag horizontal/vertical en escritorio.
+
+```ts
+const {
+  direction,
+  progress,
+  isDragging,
+  setDragHandlers,
+} = useDrag({
+  threshold: 30,
+  onDragLeft: () => console.log('Drag izquierdo'),
+  onDragRight: () => console.log('Drag derecho'),
+})
+```
+
+**Retorna**
+- `direction`, `progress`, `isDragging` – Igual que useSwipe.
+
+- `setDragHandlers` – Props como @mousedown, @mousemove, @mouseup para aplicar al componente.
+
+### useFetch
+Un composable para manejar peticiones GET con soporte para múltiples endpoints y parámetros.
+```ts
+const { data, error, loading } = useFetch({ url: '/api/data', options:{} })
+```
+
+**Props de entrada**
+- `url` (string) – URL del endpoint.
+- `options` (object) – Opciones de configuración para la petición (headers, params, etc.).
+
+**Retorna**
+- `data` (ref<any>) – Datos obtenidos de la petición.
+- `error` (ref<any>) – Error en caso de fallo.
+- `loading` (ref<boolean>) – Estado de carga de la petición.
+
+### useDebounce 
+Un composable para debouncing de funciones, útil para evitar llamadas excesivas en eventos como input o scroll.
+
+```ts
+const search = ref('')
+const debouncedSearch = useDebounce(search, 500)
+
+watch(debouncedSearch, (val) => {
+  // hacer fetch o búsqueda
+})
+```
+
+**Props de entrada**
+- `timeDebounce` (number) – Tiempo de espera para el debounce (en ms).
+
+**Retorna**
+- `debouncedValue` (ref<any>) – Valor debounced que se actualiza después.
+
+
+### useIDLE 
+Un composable para manejar el estado de la sesión del usuario, útil para detectar inactividad o expiración de sesión.
+
+```ts
+const { isIdle, showWarning, countdown, resetTimers, stop } = useIdle()
+```
+
+**Props de entrada**
+- `idleTime` (number) – Tiempo de inactividad para activar el estado idle (en ms).
+- `warningTime` (number) – Tiempo antes de mostrar la advertencia de inactividad (en ms).
+
+**Retorna**
+- `isIdle` (ref<boolean>) – Si el usuario está inactivo.
+- `showWarning` (ref<boolean>) – Si se debe mostrar la advertencia de inactividad.
+- `countdown` (ref<number>) – Contador regresivo para la advertencia.
+- `resetTimers` (function) – Función para reiniciar los temporizadores de inactividad.
+- `stop` (function) – Función para detener el watcher de inactividad.
+
+### useTheme 
+Un composable para manejar el tema oscuro/claro de la aplicación.
+
+```ts
+const { isDark, toggleTheme } = useTheme()
+```
+
+**Props de entrada**
+- None
+
+**Retorna**
+- `isDark` (ref<boolean>) – Si el tema actual es oscuro.
+- `toggleTheme` (function) – Función para alternar entre temas.
+
+### useIntersectionObserver
+Un composable para detectar la visibilidad de un elemento en el viewport usando Intersection Observer.
+```ts
+import { useIntersectionObserver } from '@/composables/useIntersectionObserver'
+
+const boxRef = ref<HTMLElement | null>(null)
+
+const { isIntersecting } = useIntersectionObserver(boxRef, {
+  threshold: 0.5,
+  onIntersect: (entry) => {
+    console.log('Intersectó al 50%', entry)
+  },
+  once: false,
+})
+```
+**Props de entrada**
+- `elementRef` (ref<HTMLElement | null>) – Referencia al elemento a observar.
+- `options` (IntersectionObserverInit) – Opciones del observer (threshold, root, rootMargin).
+
+**Retorna**
+- `isIntersecting` (ref<boolean>) – Si el elemento está intersectando el viewport

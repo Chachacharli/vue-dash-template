@@ -6,6 +6,11 @@ const initialTheme = localStorage.getItem('theme') || 'light'
 // setting the initial value of isDark based on localStorage
 const isCurrentlyDark = ref(initialTheme === 'dark')
 
+/**
+ * Composable para manejar el tema oscuro/claro de la aplicación.
+ * @returns isDark - Ref que indica si el tema actual es oscuro.
+ * @returns toggleTheme - Función para alternar entre los temas oscuro y claro.
+ */
 export function useTheme() {
   const isDark = ref(isCurrentlyDark.value)
   watchEffect(() => {
