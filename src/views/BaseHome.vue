@@ -1,27 +1,21 @@
 <template>
   <section>
     <h1>Base Homes</h1>
-    <DashSwipeContainer
-      @swipeLeft="handleSwipeLeft"
-      @swipeRight="handleSwipeRight"
-      @swipeUp="handleSwipeUp"
-      @swipeDown="handleSwipeDown"
-      :threshold="100"
-    >
-      <template #default="{ deltaX, deltaY, progress }">
-        <div class="bg-soft-dark-700 min-h-screen min-w-full text-white">
-          <h2 class="font-bold">Hazme swipe !!</h2>
-        </div>
-      </template>
-    </DashSwipeContainer>
+    <div ref="target" class="w-full h-64 bg-soft-dark-700 flex items-center justify-center">
+      <div>
+        <p>deltaX: {{ deltaX }}</p>
+        <p>deltaY: {{ deltaY }}</p>
+        <p>direction: {{ direction }}</p>
+        <p>progress: {{ progress }}</p>
+      </div>
+    </div>
   </section>
+  <input @change="" type="text">
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import DashButton from '@/components/buttons/DashButton.vue'
-import { useSwipe } from '@/composables/useSwipe'
-import DashSwipeContainer from '@/components/containers/DashSwipeContainer.vue'
+import { useDrag } from '@/composables/useDrag'
 
 const target = ref<HTMLElement | null>(null)
 
@@ -41,4 +35,12 @@ const handleSwipeUp = () => {
 const handleSwipeDown = () => {
   console.log('Swiped down!')
 }
+
+const { deltaX, deltaY, direction, progress } = useDrag(target, {
+  onDragLeft: handleSwipeLeft,
+  onDragRight: handleSwipeRight,
+  onDragUp: handleSwipeUp,
+  onDragDown: handleSwipeDown,
+})
+
 </script>
