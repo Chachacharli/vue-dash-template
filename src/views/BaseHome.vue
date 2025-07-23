@@ -1,19 +1,22 @@
 <template>
   <section>
     <h1>Base Homes</h1>
-    <bar-chart :labels="labels" :datasets="data" :options="options" />
-    <dash-button :size="'md'" :variant="'primary'" @click="changeData">Click Me</dash-button>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="">
+        <bar-chart :labels="labels" :datasets="data" :options="options" />
+      </div>
+      <div class="">
+        <bar-chart :labels="labels" :datasets="data" :options="options" />
+      </div>
+    </section>
   </section>
 </template>
 
 <script lang="ts" setup>
 import BarChart from '@/components/charts/BarChart.vue'
-import DashButton from '@/components/buttons/DashButton.vue'
 import { ref } from 'vue'
-import { useStylesCharts } from '@/@core/charts/useChart'
 import type { ChartDataset, ChartOptions } from 'chart.js'
 
-const { HASH_COLORS } = useStylesCharts()
 
 const options = ref<ChartOptions<'bar'>>({
   responsive: true,
@@ -62,8 +65,4 @@ const data = ref<ChartDataset<'bar'>[]>([
   },
 ])
 
-const changeData = () => {
-  data.value[0].data = [10, 15, 5, 7, 3, 4, 6]
-}
-const barRef = ref()
 </script>
