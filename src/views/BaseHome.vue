@@ -7,26 +7,29 @@
 </template>
 
 <script lang="ts" setup>
-import BarChart from '@/components/charts/barChart.vue'
+import BarChart from '@/components/charts/BarChart.vue'
 import DashButton from '@/components/buttons/DashButton.vue'
 import { ref } from 'vue'
 import { useStylesCharts } from '@/@core/charts/useChart'
+import type { ChartDataset, ChartOptions } from 'chart.js'
 
 const { HASH_COLORS } = useStylesCharts()
 
-const options = {
+const options = ref<ChartOptions<'bar'>>({
   responsive: true,
-  plugins: {
-    customCanvasBackgroundColor: {
-      color: HASH_COLORS['primary-800'],
-    },
-  },
   scales: {
     x: {
       type: 'category' as const,
       title: {
         display: true,
         text: 'Months',
+        color: '',
+      },
+      grid: {
+        color: '',
+      },
+      ticks: {
+        color: '',
       },
     },
     y: {
@@ -35,19 +38,26 @@ const options = {
       title: {
         display: true,
         text: 'Value',
+        color: '',
+      },
+      grid: {
+        color: '',
+      },
+      ticks: {
+        color: '',
       },
     },
   },
-}
+})
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 
-const data = ref([
+const data = ref<ChartDataset<'bar'>[]>([
   {
     label: 'Sample Data',
     data: [12, 19, 3, 5, 2, 3, 5],
-    backgroundColor: HASH_COLORS['primary-500'],
-    borderColor: HASH_COLORS['primary-100'],
+    backgroundColor: '',
+    borderColor: '',
     borderWidth: 1,
   },
 ])
@@ -56,6 +66,4 @@ const changeData = () => {
   data.value[0].data = [10, 15, 5, 7, 3, 4, 6]
 }
 const barRef = ref()
-
-
 </script>

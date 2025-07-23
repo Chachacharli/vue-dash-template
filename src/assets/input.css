@@ -65,8 +65,10 @@
   --color-soft-dark-900: #3d3d3d;
   --color-soft-dark-950: #2d2d2d;
 
-  --color-bg-dark: #2d2d2d;
-  --color-bg-light: #ffffff;
+  --color-bg-dark: #4f4f4f;
+  --color-text-dark: oklch(87.2% 0.01 258.338);
+  --color-bg-light: oklch(86.9% 0.022 252.894);
+  --color-text-light: oklch(27.9% 0.041 260.031);
 
 
   --animate-ripple: ripple 0.6s ease-out;

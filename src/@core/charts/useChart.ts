@@ -1,9 +1,7 @@
 // import { reactive } from 'vue'
 import type { ChartData, ChartOptions, ChartDataset } from 'chart.js'
 // import { createExternalTooltipHandler } from '@/@core/charts/useTooltipChart'
-import { computed } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-
 
 interface UseChartParams<T = string | number> {
   labels: string[]
@@ -20,71 +18,70 @@ interface UseChartParams<T = string | number> {
   tooltipHtml?: (data: any) => string
 }
 
-
 export enum ChartPalletCollors {
-  'primary-50'= 'primary-50',
-  'primary-100'= 'primary-100',
-  'primary-200'= 'primary-200',
-  'primary-300'= 'primary-300',
-  'primary-400'= 'primary-400',
-  'primary-500'= 'primary-500',
-  'primary-600'= 'primary-600',
-  'primary-700'= 'primary-700',
-  'primary-800'= 'primary-800',
-  'primary-900'= 'primary-900',
-  'green-50'= 'green-50',
-  'green-100'= 'green-100',
-  'green-200'= 'green-200',
-  'green-300'= 'green-300',
-  'green-400'= 'green-400',
-  'green-500'= 'green-500',
-  'green-600'= 'green-600',
-  'green-700'= 'green-700',
-  'green-800'= 'green-800',
-  'red-50'= 'red-50',
-  'red-100'= 'red-100',
-  'red-200'= 'red-200',
-  'red-300'= 'red-300',
-  'red-400'= 'red-400',
-  'red-500'= 'red-500',
-  'red-600'= 'red-600',
-  'red-700'= 'red-700',
-  'red-800'= 'red-800',
-  'blue-50'= 'blue-50',
-  'blue-100'= 'blue-100',
-  'blue-200'= 'blue-200',
-  'blue-300'= 'blue-300',
-  'blue-400'= 'blue-400',
-  'blue-500'= 'blue-500',
-  'blue-600'= 'blue-600',
-  'blue-700'= 'blue-700',
-  'blue-800'= 'blue-800',
-  'blue-900'= 'blue-900',
-  'ligh-bg-50'= 'ligh-bg-50',
-  'ligh-bg-100'= 'ligh-bg-100',
-  'ligh-bg-200'= 'ligh-bg-200',
-  'ligh-bg-300'= 'ligh-bg-300',
-  'ligh-bg-400'= 'ligh-bg-400',
-  'ligh-bg-500'= 'ligh-bg-500',
-  'ligh-bg-600'= 'ligh-bg-600',
-  'ligh-bg-700'= 'ligh-bg-700',
-  'ligh-bg-800'= 'ligh-bg-800',
-  'ligh-bg-900'= 'ligh-bg-900',
-  'dark-bg-50'= 'dark-bg-50',
-  'dark-bg-100'= 'dark-bg-100',
-  'dark-bg-200'= 'dark-bg-200',
-  'dark-bg-300'= 'dark-bg-300',
-  'dark-bg-400'= 'dark-bg-400',
-  'dark-bg-500'= 'dark-bg-500',
-  'dark-bg-600'= 'dark-bg-600',
-  'dark-bg-700'= 'dark-bg-700',
-  'dark-bg-800'= 'dark-bg-800',
-  'dark-bg-900'= 'dark-bg-900',
-  'bg-dark'= 'bg-dark',
-  'bg-light'= 'bg-light',
+  'primary-50' = 'primary-50',
+  'primary-100' = 'primary-100',
+  'primary-200' = 'primary-200',
+  'primary-300' = 'primary-300',
+  'primary-400' = 'primary-400',
+  'primary-500' = 'primary-500',
+  'primary-600' = 'primary-600',
+  'primary-700' = 'primary-700',
+  'primary-800' = 'primary-800',
+  'primary-900' = 'primary-900',
+  'green-50' = 'green-50',
+  'green-100' = 'green-100',
+  'green-200' = 'green-200',
+  'green-300' = 'green-300',
+  'green-400' = 'green-400',
+  'green-500' = 'green-500',
+  'green-600' = 'green-600',
+  'green-700' = 'green-700',
+  'green-800' = 'green-800',
+  'red-50' = 'red-50',
+  'red-100' = 'red-100',
+  'red-200' = 'red-200',
+  'red-300' = 'red-300',
+  'red-400' = 'red-400',
+  'red-500' = 'red-500',
+  'red-600' = 'red-600',
+  'red-700' = 'red-700',
+  'red-800' = 'red-800',
+  'blue-50' = 'blue-50',
+  'blue-100' = 'blue-100',
+  'blue-200' = 'blue-200',
+  'blue-300' = 'blue-300',
+  'blue-400' = 'blue-400',
+  'blue-500' = 'blue-500',
+  'blue-600' = 'blue-600',
+  'blue-700' = 'blue-700',
+  'blue-800' = 'blue-800',
+  'blue-900' = 'blue-900',
+  'ligh-bg-50' = 'ligh-bg-50',
+  'ligh-bg-100' = 'ligh-bg-100',
+  'ligh-bg-200' = 'ligh-bg-200',
+  'ligh-bg-300' = 'ligh-bg-300',
+  'ligh-bg-400' = 'ligh-bg-400',
+  'ligh-bg-500' = 'ligh-bg-500',
+  'ligh-bg-600' = 'ligh-bg-600',
+  'ligh-bg-700' = 'ligh-bg-700',
+  'ligh-bg-800' = 'ligh-bg-800',
+  'ligh-bg-900' = 'ligh-bg-900',
+  'dark-bg-50' = 'dark-bg-50',
+  'dark-bg-100' = 'dark-bg-100',
+  'dark-bg-200' = 'dark-bg-200',
+  'dark-bg-300' = 'dark-bg-300',
+  'dark-bg-400' = 'dark-bg-400',
+  'dark-bg-500' = 'dark-bg-500',
+  'dark-bg-600' = 'dark-bg-600',
+  'dark-bg-700' = 'dark-bg-700',
+  'dark-bg-800' = 'dark-bg-800',
+  'dark-bg-900' = 'dark-bg-900',
+  'bg-dark' = 'bg-dark',
+  'bg-light' = 'bg-light',
+  'text-dark' = 'text-dark',
+  'text-light' = 'text-light',
 }
-
-
 
 export const useStylesCharts = () => {
   const styles = getComputedStyle(document.documentElement)
@@ -148,10 +145,81 @@ export const useStylesCharts = () => {
     [ChartPalletCollors['dark-bg-900']]: styles.getPropertyValue('--color-soft-dark-900'),
     [ChartPalletCollors['bg-dark']]: styles.getPropertyValue('--color-bg-dark'),
     [ChartPalletCollors['bg-light']]: styles.getPropertyValue('--color-bg-light'),
-
+    [ChartPalletCollors['text-dark']]: styles.getPropertyValue('--color-text-dark'),
+    [ChartPalletCollors['text-light']]: styles.getPropertyValue('--color-text-light'),
   }
   return {
     styles,
-    HASH_COLORS
+    HASH_COLORS,
   }
+}
+
+const useDefaultChartColors = () => {
+  const { HASH_COLORS } = useStylesCharts()
+  const defaultColors = {
+    light: {
+      backgroundColor: HASH_COLORS['bg-light'],
+      textColor: HASH_COLORS['text-light'],
+      gridColor: HASH_COLORS['bg-light'],
+      borderColor: HASH_COLORS['primary-100'],
+      dataSets: [
+        HASH_COLORS['primary-500'],
+        HASH_COLORS['green-500'],
+        HASH_COLORS['red-500'],
+        HASH_COLORS['blue-500'],
+      ],
+    },
+    dark: {
+      backgroundColor: HASH_COLORS['bg-dark'],
+      textColor: HASH_COLORS['text-dark'],
+      gridColor: HASH_COLORS['bg-dark'],
+      borderColor: HASH_COLORS['primary-800'],
+      dataSets: [
+        HASH_COLORS['primary-800'],
+        HASH_COLORS['green-800'],
+        HASH_COLORS['red-800'],
+        HASH_COLORS['blue-800'],
+      ],
+    },
+  }
+
+  return { defaultColors }
+}
+
+export const setColors = ({
+  datasets,
+  options,
+}: {
+  datasets: ChartDataset<'bar'>[]
+  options: ChartOptions<'bar'>
+}): { datasets: ChartDataset<'bar'>[]; options: ChartOptions<'bar'> } => {
+  const { isDark } = useTheme()
+  const theme = isDark.value ? 'dark' : 'light'
+
+  const { defaultColors } = useDefaultChartColors()
+  const colors = defaultColors[theme]
+
+  const totalColors = colors.dataSets.length
+
+  // Setteamos el color de fondo del gráfico
+  datasets.forEach((dataset, index) => {
+    const colorIndex = index % totalColors
+    dataset.backgroundColor = colors.dataSets[colorIndex]
+    dataset.borderColor = colors.borderColor
+  })
+
+  // Setteamos los colores de fondo y texto
+  if (options.scales?.x) {
+    options.scales.x.title = { ...options.scales.x.title, color: colors.textColor }
+    options.scales.x.grid = { ...options.scales.x.grid, color: colors.gridColor }
+    options.scales.x.ticks = { ...options.scales.x.ticks, color: colors.textColor }
+  }
+
+  if (options.scales?.y) {
+    options.scales.y.title = { ...options.scales.y.title, color: colors.textColor }
+    options.scales.y.grid = { ...options.scales.y.grid, color: colors.gridColor }
+    options.scales.y.ticks = { ...options.scales.y.ticks, color: colors.textColor }
+  }
+
+  return { datasets, options }
 }
