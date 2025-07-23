@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BarChart: typeof import('./src/components/charts/BarChart.vue')['default']
+    BaseChart: typeof import('./src/components/charts/baseChart.vue')['default']
     Can: typeof import('./src/components/auth/Can.vue')['default']
     DashAlert: typeof import('./src/components/alerts/DashAlert.vue')['default']
     DashButton: typeof import('./src/components/buttons/DashButton.vue')['default']
