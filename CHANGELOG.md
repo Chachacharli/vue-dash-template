@@ -1,6 +1,22 @@
 # vue-dash-template
 
-# 0.6.0 - 22/07/2025
+## 0.7.0 - 25/07/2025
+### Resumen
+Se agregan los graficos por defecto para el dashboard, permitiendo a los usuarios visualizar datos de manera efectiva. Estos gráficos son personalizables y se pueden integrar fácilmente en diferentes secciones del dashboard. Solo se integra BAR, LINE y SCATTER, pero se pueden agregar más tipos de gráficos según las necesidades del proyecto. (Utilizando la librería `vue-chartjs`)
+
+## Mejoras
+- CT [277] Implementación de gráficos por defecto para el dashboard:
+    - Gráfico de barras (`BarChart`)
+    - Gráfico de líneas (`LineChart`)
+    - Gráfico de dispersión (`ScatterChart`)
+
+## Correcciones 
+ - CT [277] Se corrige un problema de renderizado en los gráficos cuando se actualizan los datos dinámicamente.
+
+## Obsoleto
+
+
+## 0.6.0 - 22/07/2025
 ### Resumen
 Se agrega una serie de hooks para mejorar la experiencia de desarrollo y facilitar la integración de nuevas funcionalidades. Estos hooks permiten a los desarrolladores personalizar el comportamiento de la aplicación en diferentes etapas del ciclo de vida del componente.
 
@@ -18,7 +34,7 @@ Se agrega una serie de hooks para mejorar la experiencia de desarrollo y facilit
 
 ## Obsoleto
 
-# 0.5.0 - 21/07/2025
+## 0.5.0 - 21/07/2025
 ### Resumen
 Se agrega el darkmode a la aplicación, permitiendo a los usuarios cambiar entre el modo claro y oscuro. Se implementa el hidratador de tema para mantener la preferencia del usuario entre sesiones.
 
