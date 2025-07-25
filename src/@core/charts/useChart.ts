@@ -190,7 +190,7 @@ export const setColors = ({
   datasets,
   options,
 }: {
-  datasets: ChartDataset<'bar'>[]
+  datasets: ChartDataset<any>[]
   options: ChartOptions<'bar'>
 }): { datasets: ChartDataset<'bar'>[]; options: ChartOptions<'bar'> } => {
   const { isDark } = useTheme()

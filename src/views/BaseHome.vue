@@ -6,7 +6,10 @@
         <bar-chart :labels="labels" :datasets="data" :options="options" />
       </div>
       <div class="">
-        <bar-chart :labels="labels" :datasets="data" :options="options" />
+        <line-chart :labels="labels" :datasets="lineData" :options="baseOptions" />
+      </div>
+      <div>
+        <scatter-chart :labels="labels" :datasets="scatterData" :options="baseOptions" />
       </div>
     </section>
   </section>
@@ -14,9 +17,16 @@
 
 <script lang="ts" setup>
 import BarChart from '@/components/charts/BarChart.vue'
+import ScatterChart from '@/components/charts/ScatterChart.vue'
+import LineChart from '@/components/charts/LineChart.vue'
 import { ref } from 'vue'
 import type { ChartDataset, ChartOptions } from 'chart.js'
 
+
+
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+
+// Datos de ejemplo para el gráfico de barras
 
 const options = ref<ChartOptions<'bar'>>({
   responsive: true,
@@ -52,9 +62,6 @@ const options = ref<ChartOptions<'bar'>>({
     },
   },
 })
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
-
 const data = ref<ChartDataset<'bar'>[]>([
   {
     label: 'Sample Data',
@@ -65,4 +72,36 @@ const data = ref<ChartDataset<'bar'>[]>([
   },
 ])
 
+// Datos de ejemplo para el gráfico de líneas
+const lineData = ref<ChartDataset<'line'>[]>([
+  {
+    label: 'Ventas',
+    data: [30, 50, 40, 60, 70],
+    tension: 0.4,
+    fill: false,
+  },
+])
+
+// Datos de ejemplo para el gráfico de dispersión
+const scatterData = ref<ChartDataset<'scatter'>[]>([
+  {
+    label: 'Dispersión',
+    data: [
+      { x: 1, y: 3 },
+      { x: 2, y: 5 },
+      { x: 3, y: 2 },
+      { x: 4, y: 8 },
+    ],
+  },
+])
+
+const baseOptions: ChartOptions = {
+  responsive: true,
+  plugins: {
+    legend: { position: 'top' },
+    title: { display: true, text: 'Gráfico Interactivo' },
+  },
+}
+
 </script>
+
