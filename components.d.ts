@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BarChart: typeof import('./src/components/charts/BarChart.vue')['default']
+    BaseChart: typeof import('./src/components/charts/baseChart.vue')['default']
     Can: typeof import('./src/components/auth/Can.vue')['default']
     DashAlert: typeof import('./src/components/alerts/DashAlert.vue')['default']
     DashButton: typeof import('./src/components/buttons/DashButton.vue')['default']
@@ -56,10 +58,12 @@ declare module 'vue' {
     LateraItem: typeof import('./src/components/navs/lateral/LateraItem.vue')['default']
     LateralItemToggle: typeof import('./src/components/navs/lateral/LateralItemToggle.vue')['default']
     LateralNavbar: typeof import('./src/components/navs/lateral/LateralNavbar.vue')['default']
+    LineChart: typeof import('./src/components/charts/LineChart.vue')['default']
     LoadingOverlay: typeof import('./src/components/overlay/LoadingOverlay.vue')['default']
     RippleButton: typeof import('./src/components/buttons/RippleButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScatterChart: typeof import('./src/components/charts/ScatterChart.vue')['default']
     SimpleCard: typeof import('./src/components/cards/SimpleCard.vue')['default']
     SuperiorNavbar: typeof import('./src/components/navs/superior/SuperiorNavbar.vue')['default']
     ToastContainer: typeof import('./src/components/toast/ToastContainer.vue')['default']
