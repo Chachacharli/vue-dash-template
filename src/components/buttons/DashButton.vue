@@ -1,5 +1,5 @@
 <template>
-  <button class="cursor-pointer" :class="buttonClasses" type="button">
+  <button :disabled="disabled" class="cursor-pointer" :class="buttonClasses" type="button">
     <slot></slot>
   </button>
 </template>
@@ -14,10 +14,11 @@ type ButtonSize = 'sm' | 'md' | 'lg'
 const props = defineProps<{
   variant: ButtonVariant
   size: ButtonSize
+  disabled?: boolean
 }>()
 
 const buttonStyles = computed(() => ({
-  base: 'font-medium rounded-md focus:outline-hidden transition cursor-pointer',
+  base: 'font-medium rounded-md focus:outline-hidden transition cursor-pointer disabled:opacity-50 disabled:cursor-auto',
   primary:
     'text-white bg-purple-600 hover:bg-purple-700 transition-all duration-300 ease-out active:scale-95 focus:ring-4 focus:ring-purple-500',
   secondary:

@@ -1,5 +1,9 @@
 <template>
-  <form :id="props.id" class="bg-white dark:bg-soft-dark-950 dark:text-gray-300" name="form-generator">
+  <form
+    :id="props.id"
+    class="bg-white dark:bg-soft-dark-950 dark:text-gray-300"
+    name="form-generator"
+  >
     <div class="my-2 grid md:grid-cols-4 grid-cols-1 gap-4 bg-white dark:bg-soft-dark-950">
       <template v-for="field in fields">
         <DashSelect
@@ -69,9 +73,9 @@
       </template>
     </div>
     <div v-if="!$slots.submit" class="flex justify-end gap-3 my-5">
-      <FormButton :loading="submitState" :variant="'submit'" @click="handlerSubmit"
-        >Save</FormButton
-      >
+      <DashButton :disabled="submitState" :size="'md'" :variant="'primary'" @click="handlerSubmit">
+        {{ $t('save') }}
+      </DashButton>
     </div>
     <slot name="submit" />
   </form>
@@ -85,7 +89,7 @@ import DashDatePicker from '@/components/selects/DashDatePicker.vue'
 import DashDateRangePicker from '@/components/selects/DashDateRangePicker.vue'
 import DashSwitch from '@/components/checkboxes/DashSwitch.vue'
 import DashTagsInput from '@/components/inputs/DashTagsInput.vue'
-import FormButton from '../buttons/FormButton.vue'
+import DashButton from '../buttons/DashButton.vue'
 
 import { ref } from 'vue'
 
