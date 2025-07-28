@@ -1,0 +1,1 @@
+const FRUIT_FORM_SCHEMA = {}

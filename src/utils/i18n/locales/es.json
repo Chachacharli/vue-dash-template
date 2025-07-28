@@ -8,6 +8,7 @@
   "archive": "Archivo",
   "forms": "Formularios",
   "backHome": "Volver a la página de inicio",
+  "save": "Guardar",
   "errorMessages": {
     "pageNotFound": "Página no encontrada",
     "notAuthorized": "No autorizado"
