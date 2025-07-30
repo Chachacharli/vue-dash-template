@@ -13,39 +13,71 @@ const ROUTES: RouteRecordRaw[] = [
     meta: {
       title: 'home',
       icon: 'home',
-      roles: ROLES_MAP.ALL
+      roles: ROLES_MAP.ALL,
     },
   },
   {
-    path: '/components',
-    name: 'components',
-    component: ComponentsTemplate,
+    path: '/customers',
+    name: 'customers',
+    component: () => import('@/features/customers/views/CustomersView.vue'),
     meta: {
-      title: 'components',
-      icon: 'layout',
-      roles: ROLES_MAP.ALL
+      title: 'customers',
+      icon: 'users',
+      roles: ROLES_MAP.ALL,
     },
   },
   {
-    path: '/forms',
-    name: 'forms',
-    component: FormsView,
+    path: '/customers/show/:id',
+    name: 'customer',
+    component: () => import('@/features/customers/views/CustomerView.vue'),
     meta: {
-      title: 'forms',
-      icon: 'layout',
-      roles: ROLES_MAP.ALL
+      title: 'customer',
+      icon: 'users',
+      roles: ROLES_MAP.ALL,
+      isVisible: false
     },
   },
-  {
-    path: '/archive',
-    name: 'archive',
-    component: ArchiveComponent,
+    {
+    path: '/customers/create',
+    name: 'customerCreate',
+    component: () => import('@/features/customers/views/CustomerCreate.vue'),
     meta: {
-      title: 'archive',
-      icon: 'archive',
-      roles: ROLES_MAP.ALL
+      title: 'customer',
+      icon: 'users',
+      roles: ROLES_MAP.ALL,
+      isVisible: false
     },
   },
+  // {
+  //   path: '/components',
+  //   name: 'components',
+  //   component: ComponentsTemplate,
+  //   meta: {
+  //     title: 'components',
+  //     icon: 'layout',
+  //     roles: ROLES_MAP.ALL
+  //   },
+  // },
+  // {
+  //   path: '/forms',
+  //   name: 'forms',
+  //   component: FormsView,
+  //   meta: {
+  //     title: 'forms',
+  //     icon: 'layout',
+  //     roles: ROLES_MAP.ALL
+  //   },
+  // },
+  // {
+  //   path: '/archive',
+  //   name: 'archive',
+  //   component: ArchiveComponent,
+  //   meta: {
+  //     title: 'archive',
+  //     icon: 'archive',
+  //     roles: ROLES_MAP.ALL
+  //   },
+  // },
 ]
 
 export default ROUTES

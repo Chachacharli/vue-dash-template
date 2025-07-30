@@ -40,8 +40,8 @@ const variantMapping: Record<string, { tag: string; class: string }> = {
   h6: { tag: 'h6', class: 'dark:text-white text-lg font-medium text-gray-800 my-2' },
   // Tipografía del cuerpo y variantes
   body: { tag: 'p', class: 'text-base text-gray-800 dark:text-gray-300' },
-  subtitle1: { tag: 'p', class: 'text-sm font-medium text-gray-500 dark:text-gray-600' },
-  subtitle2: { tag: 'p', class: 'text-sm text-gray-800 dark:text-gray-600' },
+  subtitle1: { tag: 'p', class: 'text-sm font-medium text-gray-500 dark:text-gray-400' },
+  subtitle2: { tag: 'p', class: 'text-sm text-gray-800 dark:text-gray-400' },
   caption: { tag: 'span', class: 'text-xs dark:text-gray-600' },
   overline: { tag: 'span', class: 'text-xs uppercase tracking-widest' },
   button: { tag: 'span', class: 'text-base font-semibold text-white' },
