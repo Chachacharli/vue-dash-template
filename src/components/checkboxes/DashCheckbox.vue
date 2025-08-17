@@ -6,10 +6,12 @@ import { type DashCheckboxProps } from '@/types'
 const props = withDefaults(defineProps<DashCheckboxProps>(), {})
 const emit = defineEmits(['update:modelValue'])
 
-const checkboxOne = ref(props.modelValue)
+debugger
+const internalValue = ref(props.modelValue)
+
 
 watch(
-  () => checkboxOne.value,
+  () => internalValue.value,
   (newValue) => emit('update:modelValue', newValue),
 )
 </script>
@@ -21,8 +23,8 @@ watch(
         <span v-if="props.label" class="select-none text-slate-700 dark:text-gray-300">{{ props.label }}</span>
       </label>
       <CheckboxRoot
-        v-model:checked="checkboxOne"
-        class="focus:ring-2 border dark:border-gray-400 focus:ring-royal-purple-500 data-[valid=false]:border-red-500 data-[valid=false]:ring-red-500 data-[valid=false]:ring-2 data-[valid=false]:border-2 hover:bg-royal-purple-50 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white dark:bg-soft-dark-700 shadow-lg outline-hidden focus-within:shadow-[0_0_0_2px_black]"
+        v-model="internalValue"
+        class="focus:ring-2 border border-gray-400 cursor-pointer dark:border-gray-400 focus:ring-royal-purple-500 data-[valid=false]:border-red-500 data-[valid=false]:ring-red-500 data-[valid=false]:ring-2 data-[valid=false]:border-2 hover:bg-royal-purple-50 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white dark:bg-soft-dark-700 shadow-lg outline-hidden"
         :data-valid="props.isValid"
       >
         <CheckboxIndicator

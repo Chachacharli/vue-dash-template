@@ -64,18 +64,18 @@ watch(
             >
               <span
                 :class="[selectedDate ? 'text-slate-700' : 'text-slate-400']"
-                class="focus:ring-2 focus:ring-royal-purple-500 text-sm dark:text-gray-300 "
+                class="focus:ring-2 focus:ring-royal-purple-500 text-sm dark:text-gray-300"
                 >{{ item.value }}</span
               >
             </DatePickerInput>
             <DatePickerInput
               v-else
               :part="item.part"
-              class="rounded-sm text-sm p-0.5 focus:ring-royal-purple-500"
+              class="rounded-xs text-sm p-0.5 data-placeholder:text-slate-700 text-slate-700 dark:text-gray-300 focus:outline-hidden focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-800"
             >
               <span
                 :class="[selectedDate ? 'text-slate-700' : 'text-slate-400']"
-                class="focus:ring-royal-purple-500 focus:outline-none dark:text-gray-300 "
+                class="rounded-xs text-sm p-0.5 data-placeholder:text-slate-700 text-slate-700 dark:text-gray-300 focus:outline-hidden focus:shadow-[0_0_0_2px] focus:shadow-royal-purple-800"
                 >{{ item.value }}</span
               >
             </DatePickerInput>

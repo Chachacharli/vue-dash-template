@@ -1,5 +1,17 @@
 # vue-dash-template
 
+## 0.7.0 - 27/08/2025
+### Resumen
+Se solucionan algunos bugs a la hora de pasarle parametros por defecto a los componentes de inputs en general.
+
+## Mejoras
+
+## Correcciones
+- Se corrige un problema en el componente `DashInput` donde los parámetros por defecto no se aplicaban correctamente.
+- Se ajusta la validación en el componente `DashSelect` para que funcione como se esperaba.
+- Se corrige un problema en el componente `DashDatePicker` donde los parámetros por defecto no se aplicaban correctamente.
+- Se corrige el props por defecto en `DashCheckbox` y `DashSwitch`.
+
 ## 0.7.0 - 25/07/2025
 ### Resumen
 Se agregan los graficos por defecto para el dashboard, permitiendo a los usuarios visualizar datos de manera efectiva. Estos gráficos son personalizables y se pueden integrar fácilmente en diferentes secciones del dashboard. Solo se integra BAR, LINE y SCATTER, pero se pueden agregar más tipos de gráficos según las necesidades del proyecto. (Utilizando la librería `vue-chartjs`)

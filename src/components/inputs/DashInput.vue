@@ -17,17 +17,24 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-
 import { type DashInputProps } from '@/types'
 
-const props = defineProps<DashInputProps>()
-
+const props = defineProps<DashInputProps & { modelValue?: string }>()
 const emit = defineEmits(['update:modelValue'])
 
-const internalValue = ref('')
+const internalValue = ref(props.modelValue ?? '')
+
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    if (newValue !== internalValue.value) {
+      internalValue.value = newValue ?? ''
+    }
+  }
+)
 
 watch(
   () => internalValue.value,
-  (newValue) => emit('update:modelValue', newValue),
+  (newValue) => emit('update:modelValue', newValue)
 )
 </script>

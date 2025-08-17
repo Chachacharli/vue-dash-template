@@ -26,7 +26,7 @@ watch(
       </label>
       <SwitchRoot
         id="airplane-mode"
-        v-model:checked="switchState"
+        v-model="switchState"
         class="w-[42px] cursor-pointer data-disabled:cursor-default data-[valid=false]:border-red-500 data-[valid=false]:ring-red-500 data-[valid=false]:ring-2 data-[valid=false]:border-2 h-[25px] focus-within:outline focus-within:outline-royal-purple-800 flex bg-royal-purple-800/50 shadow-2xs rounded-full relative data-[state=checked]:bg-royal-purple-800"
         :data-valid="props.isValid"
       >
