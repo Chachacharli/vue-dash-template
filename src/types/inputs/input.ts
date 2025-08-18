@@ -1,3 +1,5 @@
+import type { FeatherIconName } from "../icons";
+
 export enum InputTypes {
   Text = 'text',
   DatePicker = 'date-picker',
@@ -117,4 +119,11 @@ export interface FormGeneratorProps {
   fields: FieldInputConfig[]
   onSubmit: (values: Record<string, unknown>) => void
   onCancel?: () => void
+}
+
+export interface StepItem {
+  step: number
+  title: string
+  description?: string
+  icon?: FeatherIconName
 }

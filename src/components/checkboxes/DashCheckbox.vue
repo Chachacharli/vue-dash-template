@@ -6,7 +6,6 @@ import { type DashCheckboxProps } from '@/types'
 const props = withDefaults(defineProps<DashCheckboxProps>(), {})
 const emit = defineEmits(['update:modelValue'])
 
-debugger
 const internalValue = ref(props.modelValue)
 
 

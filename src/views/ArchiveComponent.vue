@@ -30,6 +30,8 @@
       :is-valid="true"
       v-model="inputs.dashdaterangepicker"
       />
+      <DashStepper :steps="steps" v-model="currentStep" />
+      {{ currentStep }}
   </section>
 </template>
 
@@ -41,13 +43,23 @@ import DashTagsInput from '@/components/inputs/DashTagsInput.vue'
 import DashDatePicker from '@/components/selects/DashDatePicker.vue'
 import DashDateRangePicker from '@/components/selects/DashDateRangePicker.vue'
 import DashSwitch from '@/components/checkboxes/DashSwitch.vue'
+import DashStepper from '@/components/stepper/DashStepper.vue'
 
 import { ref } from 'vue'
-
+import type { StepItem } from '@/types'
+  
 const dashSelectOptions = [
   { label: 'Select de ejemplo', value: 'Select de ejemplo' },
   { label: 'Opción 2', value: 'Opción2' },
   { label: 'Opción 3', value: 'Opción3' },
+]
+
+const currentStep = ref(1)
+
+const steps: StepItem[] = [
+  { step: 1, title: 'Address',   description: 'Add your address here', icon: 'home' },
+  { step: 2, title: 'Shipping',  description: 'Set your shipping',     icon: 'archive' },
+  { step: 3, title: 'Checkout',  description: 'Confirm your order',    icon: 'check' },
 ]
 
 const inputs = ref({
