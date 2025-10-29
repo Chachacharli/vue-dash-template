@@ -1,10 +1,11 @@
 # vue-dash-template
 
-## 0.7.0 - 27/08/2025
+## 0.7.1 - 27/08/2025
 ### Resumen
-Se solucionan algunos bugs a la hora de pasarle parametros por defecto a los componentes de inputs en general.
+Se solucionan algunos bugs a la hora de pasarle parametros por defecto a los componentes de inputs en general. Se agrega el componente `DashDrawer` para mejorar la experiencia de usuario al editar perfiles u otra información en un panel deslizante.
 
 ## Mejoras
+- CT Se agrega el componente `DashDrawer` para mejorar la experiencia de usuario al editar perfiles u otra información en un panel deslizante.
 
 ## Correcciones
 - Se corrige un problema en el componente `DashInput` donde los parámetros por defecto no se aplicaban correctamente.
