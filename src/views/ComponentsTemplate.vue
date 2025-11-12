@@ -453,6 +453,34 @@
         </DashCol>
       </DashRow>
     </DashContainerGrid>
+    <DashContainerGrid fluid>
+      <DashRow :padding="0" :gap="2">
+        <DashCol :col="6">
+          <DashContainerGrid :padding="4" fluid solid shadow>
+            <DashRow>
+              <DashCol :col="12">
+                <DashTypography variant="h4">Drawer</DashTypography>
+                <DashDrawer header="Hi! I'm a Drawer" size="md" direction="right">
+                  <template #trigger>
+                    <DashButton size="md" variant="primary">Open Drawer</DashButton>
+                  </template>
+                  <template #content>
+                    <section>
+                      <DashTypography variant="body">
+                        This is the content of the drawer. You can put any components or content here.
+                      </DashTypography>
+                    </section>
+                  </template>
+                  <template #close>
+                    <DashButton size="md" variant="secondary">Close</DashButton>
+                  </template>
+                </DashDrawer>
+              </DashCol>
+            </DashRow>
+          </DashContainerGrid>
+        </DashCol>
+      </DashRow>
+    </DashContainerGrid>
   </main>
 </template>
 
@@ -474,6 +502,7 @@ import DashImage from '@/components/image/DashImage.vue'
 import DashSlider from '@/components/image/DashSlider.vue'
 import DashCard from '@/components/cards/DashCard.vue'
 import DashLink from '@/components/link/DashLink.vue'
+import DashDrawer from '@/components/drawers/DashDrawer.vue'
 
 import DashContainerGrid from '@/components/grids/DashContainerGrid.vue'
 import DashRow from '@/components/grids/DashRow.vue'
